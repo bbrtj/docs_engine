@@ -468,6 +468,14 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
+  File-Which-1.27
+    pathname: P/PL/PLICEASE/File-Which-1.27.tar.gz
+    provides:
+      File::Which 1.27
+    requirements:
+      ExtUtils::MakeMaker 0
+      base 0
+      perl 5.006
   Form-Diva-1.03
     pathname: B/BR/BRAINBUZ/Form-Diva-1.03.tar.gz
     provides:
@@ -537,6 +545,14 @@ DISTRIBUTIONS
       perl 5.014000
       strict 0
       warnings 0
+  IPC-Run3-0.048
+    pathname: R/RJ/RJBS/IPC-Run3-0.048.tar.gz
+    provides:
+      IPC::Run3 0.048
+    requirements:
+      ExtUtils::MakeMaker 0
+      Test::More 0.31
+      Time::HiRes 0
   Import-Into-1.002005
     pathname: H/HA/HAARG/Import-Into-1.002005.tar.gz
     provides:
@@ -943,6 +959,21 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
+  Pandoc-0.9.1
+    pathname: V/VO/VOJ/Pandoc-0.9.1.tar.gz
+    provides:
+      App::Prove::Plugin::andoc v0.9.1
+      Pandoc v0.9.1
+      Pandoc::Error v0.9.1
+      Pandoc::Release v0.9.1
+      Pandoc::Version v0.9.1
+    requirements:
+      File::Which 1.11
+      HTTP::Tiny 0
+      IPC::Run3 0
+      JSON::PP 0
+      Module::Build::Tiny 0.035
+      perl 5.014
   Params-Util-1.102
     pathname: R/RE/REHSACK/Params-Util-1.102.tar.gz
     provides:

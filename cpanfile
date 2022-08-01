@@ -23,6 +23,7 @@ requires 'List::Util' => 0;
 requires 'Syntax::Keyword::Match' => 0;
 
 requires 'Pod::Simple' => 0;
+requires 'Pandoc' => 0;
 
 on 'test' => sub {
 	requires 'Test::DB';

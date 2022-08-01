@@ -5,6 +5,7 @@ class Component::Renderer
 	use Syntax::Keyword::Match;
 	use Renderer::Pod;
 	use Renderer::Plain;
+	use Renderer::Markdown;
 	use header;
 
 	method render ($path)
@@ -13,6 +14,9 @@ class Component::Renderer
 			match ($path->extname : eq) {
 				case ('pod') {
 					'Renderer::Pod';
+				}
+				case ('md') {
+					'Renderer::Markdown';
 				}
 				default {
 					'Renderer::Plain';
