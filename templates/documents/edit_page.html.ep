@@ -1,0 +1,30 @@
+% layout 'default';
+% title "Edit knowledge - $document_path";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to View => url_for("page", document_namespace => $document_namespace, page_path => $document_path)
+		</li>
+		<li>
+			%= link_to List => url_for("list", document_namespace => $document_namespace)
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	<form method="POST" action="" id="document-form">
+		% for my $field ($form->diva->generate->@*) {
+			<p>
+				%== $field->{label}
+				%== $field->{input}
+				%== $field->{errors}
+			</p>
+		% }
+
+		<p>
+			<input type="submit" value="Send">
+		</p>
+	</form>
+</div>
+

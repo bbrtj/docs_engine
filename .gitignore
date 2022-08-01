@@ -1,0 +1,9 @@
+/.tidyall.d
+/local
+/.env
+/.config
+/.carmel
+
+/logs/*
+!/logs/.keep
+

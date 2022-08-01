@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+html body {
+	padding: 0;
+	margin: 0;
+}
+
+#document-toolbar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background: white;
+}
+
+#document-toolbar > ul {
+	padding: 5px;
+	margin: 0;
+}
+
+#document-toolbar > ul > li {
+	display: inline-block;
+	padding-right: 10px;
+}
+
+#document-contents {
+	position: relative;
+	margin: 8px;
+	margin-top: 2em;
+}
+
+#document-form textarea {
+	width: 100%;
+	height: 500px;
+}
+

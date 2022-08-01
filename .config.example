@@ -1,0 +1,6 @@
+(
+	document_directories => {
+		pages => 'pages',
+	}
+)
+

@@ -1,0 +1,22 @@
+% layout 'default';
+% title "Listing (root)";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to Namespaces => url_for("global-list")
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	<h1>Root directory listing</h1>
+	<ul>
+	% for my $directory ($list->@*) {
+		<li>
+		%= link_to $directory => url_for("list", document_namespace => $directory)
+		</li>
+	% }
+	</ul>
+</div>
+

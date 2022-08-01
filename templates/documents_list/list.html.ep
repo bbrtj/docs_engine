@@ -1,0 +1,25 @@
+% layout 'default';
+% title "Listing - $list_path";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to 'New page' => url_for("new-page", document_namespace => $document_namespace)
+		</li>
+		<li>
+			%= link_to Namespaces => url_for("global-list")
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	<h1>Listing for <%= $list_path %></h1>
+	<ul>
+	% for my $file ($list->@*) {
+		<li>
+		%= link_to $file => url_for("page", document_namespace => $list_path, page_path => $file)
+		</li>
+	% }
+	</ul>
+</div>
+

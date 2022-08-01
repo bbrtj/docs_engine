@@ -1,0 +1,21 @@
+% layout 'default';
+% title "Knowledge base - $document_path";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to Edit => url_for("edit-page", document_namespace => $document_namespace, page_path => $document_path)
+		</li>
+		<li>
+			%= link_to Delete => url_for("delete-page", document_namespace => $document_namespace, page_path => $document_path)
+		</li>
+		<li>
+			%= link_to List => url_for("list", document_namespace => $document_namespace)
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	%== $document
+</div>
+

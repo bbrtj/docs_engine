@@ -1,0 +1,20 @@
+config:
+    class: Component::Config
+
+renderer:
+    class: Component::Renderer
+
+file_accessor:
+    class: Component::FileAccessor
+    args:
+        config:
+            $ref: config
+        renderer:
+            $ref: renderer
+
+directory_accessor:
+    class: Component::DirectoryAccessor
+    args:
+        config:
+            $ref: config
+

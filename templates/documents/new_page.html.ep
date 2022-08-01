@@ -1,0 +1,30 @@
+% layout 'default';
+% title "New knowledge - $document_namespace";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to List => url_for("list", document_namespace => $document_namespace)
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	<form method="POST" action="" id="document-form">
+		<p>
+			%== $form->diva->form_errors
+		</p>
+		% for my $field ($form->diva->generate->@*) {
+			<p>
+				%== $field->{label}
+				%== $field->{input}
+				%== $field->{errors}
+			</p>
+		% }
+
+		<p>
+			<input type="submit" value="Create">
+		</p>
+	</form>
+</div>
+
