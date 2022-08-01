@@ -17,7 +17,7 @@
 	<ul>
 	% for my $file ($list->@*) {
 		<li>
-		%= link_to $file => url_for("page", document_namespace => $list_path, page_path => $file)
+		%= link_to $file => url_for("page", document_namespace => $document_namespace, page_path => $file)
 		</li>
 	% }
 	</ul>
