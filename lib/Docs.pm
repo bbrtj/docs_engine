@@ -1,7 +1,6 @@
 package Docs;
 
 use My::Moose;
-use DI;
 use header;
 
 extends 'Mojolicious';

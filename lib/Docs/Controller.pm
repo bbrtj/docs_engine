@@ -1,16 +1,12 @@
 package Docs::Controller;
 
 use My::Moose;
-use DI;
 use Exception::NotFound;
 use header;
 
 extends 'Mojolicious::Controller';
 
-has field 'config' => (
-	isa => Types::InstanceOf['Component::Config'],
-	default => sub { DI->get('config') },
-);
+has DI->inject('config');
 
 sub resolve_namespace ($self)
 {

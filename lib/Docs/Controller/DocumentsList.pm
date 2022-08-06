@@ -7,10 +7,7 @@ use header;
 
 extends 'Docs::Controller';
 
-has field 'accessor' => (
-	isa => Types::InstanceOf['Component::DirectoryAccessor'],
-	default => sub { DI->get('directory_accessor') },
-);
+has DI->inject('directory_accessor');
 
 sub list ($self)
 {
@@ -19,11 +16,11 @@ sub list ($self)
 		my $real_path = path($directory);
 
 		Exception::NotFound->raise
-			unless $self->accessor->can_be_accessed($real_path);
+			unless $self->directory_accessor->can_be_accessed($real_path);
 
 		$self->stash(
 			list_path => $directory,
-			list => $self->accessor->get_directory_listing($real_path)
+			list => $self->directory_accessor->get_directory_listing($real_path)
 		)->render;
 	});
 }
@@ -32,7 +29,7 @@ sub global_list ($self)
 {
 	$self->stash(
 		list_path => 'index',
-		list => $self->accessor->get_directories()
+		list => $self->directory_accessor->get_directories()
 	)->render;
 }
 

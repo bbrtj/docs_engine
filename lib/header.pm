@@ -5,7 +5,9 @@ use utf8;
 use Import::Into;
 use List::Util qw(any);
 use true;
+
 use Types;
+use DI;
 
 use experimental;
 
@@ -14,13 +16,13 @@ no warnings 'experimental::builtin';
 require Carp;
 require builtin;
 require Ref::Util;
-require Object::Pad;
 
 sub import ($self, @args)
 {
 	my $pkg = caller;
 
 	feature->import::into($pkg, ':5.36', qw(try refaliasing declared_refs defer));
+	feature->unimport::out_of($pkg, qw(indirect));
 	utf8->import::into($pkg);
 	Carp->import::into($pkg, qw(croak));
 	builtin->import::into($pkg, qw(true false indexed trim ceil floor));

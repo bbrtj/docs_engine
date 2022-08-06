@@ -8,15 +8,8 @@ use header;
 
 extends 'Docs::Controller';
 
-has field 'accessor' => (
-	isa => Types::InstanceOf['Component::FileAccessor'],
-	default => sub { DI->get('file_accessor') },
-);
-
-has field 'directory_accessor' => (
-	isa => Types::InstanceOf['Component::DirectoryAccessor'],
-	default => sub { DI->get('directory_accessor') },
-);
+has DI->inject('file_accessor');
+has DI->inject('directory_accessor');
 
 sub _standard_request ($self, $specfifc_part_sref)
 {
@@ -25,7 +18,7 @@ sub _standard_request ($self, $specfifc_part_sref)
 	my $real_path = path($base)->child($path);
 
 	Exception::NotFound->raise
-		unless $self->accessor->can_be_accessed($real_path);
+		unless $self->file_accessor->can_be_accessed($real_path);
 
 	return $specfifc_part_sref->($path, $real_path);
 }
@@ -36,7 +29,7 @@ sub page ($self)
 		$self->_standard_request(sub ($path, $real_path) {
 			$self->stash(
 				document_path => $path,
-				document => $self->accessor->get_file_rendered($real_path)
+				document => $self->file_accessor->get_file_rendered($real_path)
 			)->render;
 		})
 	});
@@ -91,7 +84,7 @@ sub edit_page ($self)
 	return $self->request_wrapper(sub {
 		$self->_standard_request(sub ($path, $real_path) {
 			my $form = Docs::Form::Document->new;
-			$form->set_input({content => $self->accessor->get_file($real_path)});
+			$form->set_input({content => $self->file_accessor->get_file($real_path)});
 
 			$self->stash(
 				document_path => $path,
@@ -110,7 +103,7 @@ sub edit_page_save ($self)
 
 			if ($form->valid) {
 				my $content = $form->fields->{content};
-				$self->accessor->save_file($real_path, $content);
+				$self->file_accessor->save_file($real_path, $content);
 				$self->redirect_to('page');
 			}
 			else {
