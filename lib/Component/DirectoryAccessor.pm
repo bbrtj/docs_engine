@@ -1,45 +1,45 @@
-use classes;
+package Component::DirectoryAccessor;
 
-class Component::DirectoryAccessor :does(Component::Accessor)
+use My::Moose;
+use Mojo::File qw(path);
+use header;
+
+with 'Component::Accessor';
+
+sub can_be_accessed ($self, $path)
 {
-	use Mojo::File qw(path);
-	use header;
+	return -d $self->ensure_path_object($path)->realpath;
+}
 
-	method access_checks ($path)
-	{
-		return -d $self->ensure_path_object($path)->realpath;
-	}
+sub get_directory_listing ($self, $path)
+{
+	return $self->get_or_store($path, sub {
+		my @mapped =
+			map { $_ =~ s{^\Q$path\E/}{}r }
+			grep { -f $_ }
+			$self->ensure_path_object($path)->list_tree->to_array->@*
+		;
 
-	method get_directory_listing ($path)
-	{
-		return $self->get_or_store($path, sub {
-			my @mapped =
-				map { $_ =~ s{^\Q$path\E/}{}r }
-				grep { -f $_ }
-				$self->ensure_path_object($path)->list_tree->to_array->@*
-			;
+		return \@mapped;
+	});
+}
 
-			return \@mapped;
-		});
-	}
+sub get_directories ($self)
+{
+	return [keys $self->config->getconfig('document_directories')->%*];
+}
 
-	method get_directories ()
-	{
-		return [keys $self->config->getconfig('document_directories')->%*];
-	}
+sub create_file ($self, $base, $path)
+{
+	$self->ensure_path_object($base)->child($path)->touch;
+	$self->clear_cache($base);
+	return;
+}
 
-	method create_file ($base, $path)
-	{
-		$self->ensure_path_object($base)->child($path)->touch;
-		$self->clear_cache($base);
-		return;
-	}
-
-	method delete_file ($base, $path)
-	{
-		$self->ensure_path_object($base)->child($path)->remove;
-		$self->clear_cache($base);
-		return;
-	}
+sub delete_file ($self, $base, $path)
+{
+	$self->ensure_path_object($base)->child($path)->remove;
+	$self->clear_cache($base);
+	return;
 }
 

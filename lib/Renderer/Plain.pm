@@ -1,17 +1,17 @@
-use classes;
+package Renderer::Plain;
 
-class Renderer::Plain isa Renderer
+use My::Moose;
+use Mojo::File qw(path);
+use header;
+
+with 'Role::Renderer';
+
+use constant TEMPLATE => <<~HTML;
+	<pre>%s</pre>
+HTML
+
+sub render ($self, $path)
 {
-	use Mojo::File qw(path);
-	use header;
-
-	use constant TEMPLATE => <<~HTML;
-		<pre>%s</pre>
-	HTML
-
-	method render :override ($path)
-	{
-		return sprintf TEMPLATE, path($path)->slurp;
-	}
+	return sprintf TEMPLATE, path($path)->slurp;
 }
 

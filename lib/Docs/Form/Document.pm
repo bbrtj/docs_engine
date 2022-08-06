@@ -1,15 +1,12 @@
-use classes;
+package Docs::Form::Document;
 
-class Docs::Form::Document :repr(HASH)
-{
-	use Form::Tiny -nomoo, plugins => ['Diva'];
-	use Types::Standard qw(Str);
-	use header;
+use Form::Tiny plugins => ['Diva'];
+use Types::Standard qw(Str);
+use header;
 
-	form_field 'content' => (
-		type => Str,
-		required => 1,
-		data => {l => undef, t => 'textarea'},
-	);
-}
+form_field 'content' => (
+	type => Str,
+	required => 1,
+	data => {l => undef, t => 'textarea'},
+);
 

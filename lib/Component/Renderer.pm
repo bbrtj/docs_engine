@@ -1,30 +1,29 @@
-use classes;
+package Component::Renderer;
 
-class Component::Renderer
+use My::Moose;
+use Syntax::Keyword::Match;
+use Renderer::Pod;
+use Renderer::Plain;
+use Renderer::Markdown;
+
+use header;
+
+sub render ($self, $path)
 {
-	use Syntax::Keyword::Match;
-	use Renderer::Pod;
-	use Renderer::Plain;
-	use Renderer::Markdown;
-	use header;
-
-	method render ($path)
-	{
-		my $class = do {
-			match ($path->extname : eq) {
-				case ('pod') {
-					'Renderer::Pod';
-				}
-				case ('md') {
-					'Renderer::Markdown';
-				}
-				default {
-					'Renderer::Plain';
-				}
+	my $class = do {
+		match ($path->extname : eq) {
+			case ('pod') {
+				'Renderer::Pod';
 			}
-		};
+			case ('md') {
+				'Renderer::Markdown';
+			}
+			default {
+				'Renderer::Plain';
+			}
+		}
+	};
 
-		return $class->new->render($path);
-	}
+	return $class->new->render($path);
 }
 

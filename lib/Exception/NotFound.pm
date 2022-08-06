@@ -1,7 +1,7 @@
-use classes;
+package Exception::NotFound;
 
-class Exception::NotFound isa Exception
-{
-	use header;
-}
+use My::Moose;
+use header;
+
+extends 'Exception';
 

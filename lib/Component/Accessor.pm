@@ -1,55 +1,58 @@
-use classes;
+package Component::Accessor;
 
-role Component::Accessor
+use My::Moose::Role;
+use Mojo::File qw(path);
+use header;
+
+has param 'config' => (
+	isa => Types::InstanceOf['Component::Config'],
+);
+
+has field 'directories' => (
+	isa => Types::ArrayRef,
+	lazy => 1,
+);
+
+has field 'cache' => (
+	isa => Types::HashRef,
+	default => sub { {} },
+);
+
+sub _build_directories ($self)
 {
-	use Mojo::File qw(path);
-	use header;
+	return [
+		map { my $dir = quotemeta $_; qr/^$dir/ }
+		map { path($_)->realpath->to_string }
+		values $self->config->getconfig('document_directories')->%*
+	];
+}
 
-	has $config :param :reader;
+sub ensure_path_object ($self, $path)
+{
+	return $path if $path isa 'Mojo::File';
+	return path($path);
+}
 
-	has @directories;
-	has %cache;
+around 'can_be_accessed' => sub ($orig, $self, $path) {
+	$path = $self->ensure_path_object($path);
+	my $real_path = $path->realpath;
 
-	BUILD {
-		@directories = map { my $dir = quotemeta $_; qr/^$dir/ }
-			map { path($_)->realpath->to_string }
-			values $config->getconfig('document_directories')->%*;
+	my sub is_within_document_directories () {
+		return any { $real_path =~ $_ } $self->directories->@*;
 	}
 
-	method ensure_path_object ($path)
-	{
-		return $path if $path isa 'Mojo::File';
-		return path($path);
-	}
+	return true if exists $self->cache->{$path};
+	return is_within_document_directories && $self->$orig($path);
+};
 
-	method can_be_accessed ($path)
-	{
-		$path = $self->ensure_path_object($path);
-		my $real_path = $path->realpath;
+sub get_or_store ($self, $path, $value_sref)
+{
+	return $self->cache->{$path} //= $value_sref->();
+}
 
-		my sub is_within_document_directories () {
-			return any { $real_path =~ $_ } @directories;
-		}
-
-		my sub run_access_checks () {
-			return true unless $self->can('access_checks');
-			return $self->access_checks($path);
-		}
-
-		return true if exists $cache{$path};
-		return is_within_document_directories && run_access_checks;
-	}
-
-	method get_or_store ($path, $value_sref)
-	{
-		return $cache{$path} //= $value_sref->();
-	}
-
-	method clear_cache ($path)
-	{
-		delete $cache{$path};
-		return;
-	}
-
+sub clear_cache ($self, $path)
+{
+	delete $self->cache->{$path};
+	return;
 }
 

@@ -1,14 +1,14 @@
-use classes;
+package Renderer::Markdown;
 
-class Renderer::Markdown isa Renderer
+use My::Moose;
+use Mojo::File qw(path);
+use Pandoc;
+use header;
+
+with 'Role::Renderer';
+
+sub render ($self, $path)
 {
-	use Mojo::File qw(path);
-	use Pandoc;
-	use header;
-
-	method render :override ($path)
-	{
-		return pandoc->convert('markdown' => 'html', path($path)->slurp);
-	}
+	return pandoc->convert('markdown' => 'html', path($path)->slurp);
 }
 

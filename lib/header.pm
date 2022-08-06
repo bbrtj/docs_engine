@@ -4,6 +4,8 @@ use v5.36;
 use utf8;
 use Import::Into;
 use List::Util qw(any);
+use true;
+use Types;
 
 use experimental;
 
@@ -25,6 +27,8 @@ sub import ($self, @args)
 	Ref::Util->import::into($pkg, qw(is_arrayref is_hashref is_coderef));
 	List::Util->import::into($pkg, qw(first any mesh));
 
+	true->import::into($pkg);
+
 	no_experimental_warnings($pkg);
 
 	return;
@@ -43,6 +47,4 @@ sub no_experimental_warnings ($pkg = caller)
 
 	return;
 }
-
-1;
 

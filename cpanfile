@@ -1,9 +1,13 @@
-requires 'Object::Pad' => 0;
+requires 'Moo' => 0;
 requires 'Util::H2O' => 0;
 
 requires 'Beam::Wire' => 0;
 requires 'Dotenv' => 0;
 
+requires 'true' => 0;
+requires 'namespace::autoclean' => 0;
+
+requires 'Type::Tiny' => 0;
 requires 'Form::Tiny' => '2.06';
 requires 'Form::Tiny::Plugin::Diva' => 0;
 

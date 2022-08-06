@@ -1,36 +1,39 @@
-use classes;
+package Docs::Controller;
 
-class Docs::Controller isa Mojolicious::Controller
+use My::Moose;
+use DI;
+use Exception::NotFound;
+use header;
+
+extends 'Mojolicious::Controller';
+
+has field 'config' => (
+	isa => Types::InstanceOf['Component::Config'],
+	default => sub { DI->get('config') },
+);
+
+sub resolve_namespace ($self)
 {
-	use DI;
-	use Exception::NotFound;
-	use header;
+	my $namespace = $self->param('document_namespace');
+	my $exists = $self->config->getconfig('document_directories')->{$namespace};
 
-	has $config :reader = DI->get('config');
+	return $exists
+		if defined $exists;
 
-	method resolve_namespace ()
-	{
-		my $namespace = $self->param('document_namespace');
-		my $exists = $config->getconfig('document_directories')->{$namespace};
+	Exception::NotFound->raise;
+}
 
-		return $exists
-			if defined $exists;
-
-		Exception::NotFound->raise;
+sub request_wrapper ($self, $code_sref)
+{
+	try {
+		$code_sref->();
+	}
+	catch ($e) {
+		return $self->reply->not_found
+			if $e isa 'Exception::NotFound';
+		die $e;
 	}
 
-	method request_wrapper ($code_sref)
-	{
-		try {
-			$code_sref->();
-		}
-		catch ($e) {
-			return $self->reply->not_found
-				if $e isa 'Exception::NotFound';
-			die $e;
-		}
-
-		return;
-	}
+	return;
 }
 

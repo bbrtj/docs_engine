@@ -1,12 +1,10 @@
-use classes;
+package Exception;
 
-class Exception
+use My::Moose;
+use header;
+
+sub raise ($class, @params)
 {
-	use header;
-
-	method raise :common (@params)
-	{
-		die $class->new(@params);
-	}
+	die $class->new(@params);
 }
 

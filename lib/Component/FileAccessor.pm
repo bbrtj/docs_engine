@@ -1,32 +1,36 @@
-use classes;
+package Component::FileAccessor;
 
-class Component::FileAccessor :does(Component::Accessor)
+use My::Moose;
+use Mojo::File qw(path);
+use header;
+
+with 'Component::Accessor';
+
+has param 'renderer' => (
+	isa => Types::InstanceOf['Component::Renderer'],
+);
+
+sub can_be_accessed ($self, $path)
 {
-	use Mojo::File qw(path);
-	use header;
+	return -f $self->ensure_path_object($path)->realpath;
+}
 
-	has $renderer :param;
+sub get_file_rendered ($self, $path)
+{
+	return $self->get_or_store($path, sub {
+		$self->renderer->render($self->ensure_path_object($path))
+	});
+}
 
-	method access_checks ($path)
-	{
-		return -f $self->ensure_path_object($path)->realpath;
-	}
+sub get_file ($self, $path)
+{
+	return $self->ensure_path_object($path)->slurp;
+}
 
-	method get_file_rendered ($path)
-	{
-		return $self->get_or_store($path, sub { $renderer->render($self->ensure_path_object($path)) });
-	}
-
-	method get_file ($path)
-	{
-		return $self->ensure_path_object($path)->slurp;
-	}
-
-	method save_file ($path, $content)
-	{
-		$self->ensure_path_object($path)->spurt($content);
-		$self->clear_cache($path);
-		return;
-	}
+sub save_file ($self, $path, $content)
+{
+	$self->ensure_path_object($path)->spurt($content);
+	$self->clear_cache($path);
+	return;
 }
 

@@ -1,40 +1,47 @@
-use classes;
+package Component::Config;
 
-class Component::Config
+use My::Moose;
+
+use Dotenv -load;
+use header;
+
+has field 'defaults' => (
+	isa => Types::HashRef,
+	default => sub { {
+		APP_MODE => 'development'
+	} },
+);
+
+has field 'config' => (
+	isa => Types::HashRef,
+	lazy => 1,
+);
+
+sub _build_config ($self)
 {
-	use Dotenv -load;
-	use header;
+	my %conf = do './.config';
+	return \%conf;
+}
 
-	has %defaults = (
-		APP_MODE => 'development',
-	);
+sub getenv ($self, $name)
+{
+	my $value = exists $self->defaults->{$name}
+		? $self->defaults->{$name}
+		: exists $ENV{$name}
+			? $ENV{$name}
+			: croak "unknown environmental variable $name"
+	;
 
-	has %config;
+	return $value;
+}
 
-	BUILD {
-		%config = do './.config';
-	}
+sub getconfig ($self, $name)
+{
+	return $self->config->{$name};
+}
 
-	method getenv ($name)
-	{
-		my $value = exists $defaults{$name}
-			? $defaults{$name}
-			: exists $ENV{$name}
-				? $ENV{$name}
-				: croak "unknown environmental variable $name"
-		;
-
-		return $value;
-	}
-
-	method getconfig ($name)
-	{
-		return $config{$name};
-	}
-
-	method is_production ()
-	{
-		return any { $self->getenv('APP_MODE') eq $_ } qw(deployment production);
-	}
+sub is_production ($self)
+{
+	return any { $self->getenv('APP_MODE') eq $_ } qw(deployment production);
 }
 
