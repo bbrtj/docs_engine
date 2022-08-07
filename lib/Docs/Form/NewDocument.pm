@@ -1,11 +1,10 @@
 package Docs::Form::NewDocument;
 
 use Form::Tiny plugins => ['Diva'];
-use Types::Common::String qw(SimpleStr);
 use header;
 
 form_field 'name' => (
-	type => SimpleStr,
+	type => Types::SimpleStr,
 	required => 1,
 	data => {t => 'text'},
 );

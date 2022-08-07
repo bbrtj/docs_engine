@@ -1,20 +1,21 @@
 % layout 'default';
-% title "Edit knowledge - $document_path";
+% title "Log in to continue";
 
 <div id="document-toolbar">
 	<ul>
 		<li>
-			%= link_to View => url_for("page", document_namespace => $document_namespace, page_path => $document_path)
-		</li>
-		<li>
-			%= link_to List => url_for("list", document_namespace => $document_namespace)
+			%= link_to Namespaces => url_for("global-list")
 		</li>
 	</ul>
 </div>
 
 <div id="document-contents">
-	<form method="POST" action="" id="document-form">
+	<form method="POST" action="" id="login-form">
 		%== $form->diva->hidden
+
+		<p>
+			%== $form->diva->form_errors
+		</p>
 
 		% for my $field ($form->diva->generate->@*) {
 			<p>

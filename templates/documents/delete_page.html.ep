@@ -14,6 +14,8 @@
 
 <div id="document-contents">
 	<form method="POST" action="" id="document-form">
+		%== $form->diva->hidden
+
 		<p>
 			Really delete this page?
 			%= $document_path

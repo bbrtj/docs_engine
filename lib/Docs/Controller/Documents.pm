@@ -46,36 +46,20 @@ sub new_page ($self)
 
 		my $form = Docs::Form::NewDocument->new;
 
+		if (($self->stash->{stage} // '') eq 'send') {
+			$form->set_input($self->req->params->to_hash);
+
+			if ($form->valid) {
+				my $name = $form->fields->{name};
+				$self->directory_accessor->create_file($base, $name);
+				return $self->redirect_to('edit-page' => {
+					page_path => $name,
+				});
+			}
+		}
 		$self->stash(
 			form => $form
 		)->render;
-	});
-}
-
-sub new_page_save ($self)
-{
-	return $self->request_wrapper(sub {
-		my $base = $self->resolve_namespace;
-		my $real_path = path($base);
-
-		Exception::NotFound->raise
-			unless $self->directory_accessor->can_be_accessed($real_path);
-
-		my $form = Docs::Form::NewDocument->new;
-		$form->set_input($self->req->params->to_hash);
-
-		if ($form->valid) {
-			my $name = $form->fields->{name};
-			$self->directory_accessor->create_file($base, $name);
-			$self->redirect_to('edit-page' => {
-				page_path => $name,
-			});
-		}
-		else {
-			$self->stash(
-				form => $form
-			)->render;
-		}
 	});
 }
 
@@ -84,7 +68,19 @@ sub edit_page ($self)
 	return $self->request_wrapper(sub {
 		$self->_standard_request(sub ($path, $real_path) {
 			my $form = Docs::Form::Document->new;
-			$form->set_input({content => $self->file_accessor->get_file($real_path)});
+
+			if (($self->stash->{stage} // '') eq 'send') {
+				$form->set_input($self->req->params->to_hash);
+
+				if ($form->valid) {
+					my $content = $form->fields->{content};
+					$self->file_accessor->save_file($real_path, $content);
+					return $self->redirect_to('page');
+				}
+			}
+			else {
+				$form->set_input({content => $self->file_accessor->get_file($real_path)});
+			}
 
 			$self->stash(
 				document_path => $path,
@@ -94,45 +90,18 @@ sub edit_page ($self)
 	});
 }
 
-sub edit_page_save ($self)
-{
-	return $self->request_wrapper(sub {
-		$self->_standard_request(sub ($path, $real_path) {
-			my $form = Docs::Form::Document->new;
-			$form->set_input($self->req->params->to_hash);
-
-			if ($form->valid) {
-				my $content = $form->fields->{content};
-				$self->file_accessor->save_file($real_path, $content);
-				$self->redirect_to('page');
-			}
-			else {
-				$self->stash(
-					document_path => $path,
-					form => $form
-				)->render;
-			}
-		})
-	});
-}
-
 sub delete_page ($self)
 {
 	return $self->request_wrapper(sub {
 		$self->_standard_request(sub ($path, $real_path) {
+			if (($self->stash->{stage} // '') eq 'send') {
+				$self->directory_accessor->delete_file($self->resolve_namespace, $path);
+				return $self->redirect_to('list');
+			}
+
 			$self->stash(
 				document_path => $path,
 			)->render;
-		})
-	});
-}
-
-sub delete_page_confirm ($self)
-{
-	return $self->request_wrapper(sub {
-		$self->_standard_request(sub ($path, $real_path) {
-			$self->directory_accessor->delete_file($self->resolve_namespace, $path);
-			$self->redirect_to('list');
 		})
 	});
 }

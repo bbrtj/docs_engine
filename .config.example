@@ -1,6 +1,11 @@
 (
 	document_directories => {
 		pages => 'pages',
-	}
+	},
+	login_riddle => {
+		question => 'Dawn is breaking',
+		answer => 'To greet another day',
+		feedback => 'Infidel!',
+	},
 )
 

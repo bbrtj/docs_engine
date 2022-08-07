@@ -11,9 +11,12 @@
 
 <div id="document-contents">
 	<form method="POST" action="" id="document-form">
+		%== $form->diva->hidden
+
 		<p>
 			%== $form->diva->form_errors
 		</p>
+
 		% for my $field ($form->diva->generate->@*) {
 			<p>
 				%== $field->{label}
