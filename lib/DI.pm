@@ -2,7 +2,7 @@ package DI;
 
 use v5.36;
 use Beam::Wire;
-use MooseY::FieldBuilder;
+use Mooish::AttributeBuilder;
 
 my $wire = Beam::Wire->new(file => 'wire.yml');
 

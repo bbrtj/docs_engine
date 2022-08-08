@@ -942,6 +942,13 @@ DISTRIBUTIONS
       Sub::Defer 2.006006
       Sub::Quote 2.006006
       perl 5.006
+  Mooish-AttributeBuilder-0.001
+    pathname: B/BR/BRTASTIC/Mooish-AttributeBuilder-0.001.tar.gz
+    provides:
+      Mooish::AttributeBuilder 0.001
+    requirements:
+      ExtUtils::MakeMaker 0
+      perl 5.010
   Package-Stash-0.40
     pathname: E/ET/ETHER/Package-Stash-0.40.tar.gz
     provides:
