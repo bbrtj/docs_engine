@@ -40,29 +40,32 @@ sub load_routes ($self, $config)
 	my $main = $r->under('/');#->to('middleware#prepare_request');
 
 	my $login = $main->under('/login');
-	$login->get("/")->to('auth#login')->name('login');
-	$login->post("/")->to('auth#login', stage => 'send');
+	$login->get('/')->to('auth#login')->name('login');
+	$login->post('/')->to('auth#login', stage => 'send');
 
-	$main->get("logout")->to('auth#logout')->name('logout');
+	$main->get('logout')->to('auth#logout')->name('logout');
 
 	my $new = $main->under('/new')->to('middleware#auth');
-	$new->get("/:document_namespace/")->to('documents#new_page')->name('new-page');
-	$new->post("/:document_namespace/")->to('documents#new_page', stage => 'send');
+	$new->get('/:document_namespace/')->to('documents#new_page')->name('new-page');
+	$new->post('/:document_namespace/')->to('documents#new_page', stage => 'send');
 
 	my $edit = $main->under('/edit')->to('middleware#auth');
-	$edit->get("/:document_namespace/*page_path")->to('documents#edit_page')->name('edit-page');
-	$edit->post("/:document_namespace/*page_path")->to('documents#edit_page', stage => 'send');
+	$edit->get('/:document_namespace/*page_path')->to('documents#edit_page')->name('edit-page');
+	$edit->post('/:document_namespace/*page_path')->to('documents#edit_page', stage => 'send');
 
 	my $list = $main->under('/list');
-	$list->get("/")->to('documents_list#global_list')->name('global-list');
-	$list->get("/:document_namespace")->to('documents_list#list')->name('list');
+	$list->get('/')->to('documents_list#global_list')->name('global-list');
+	$list->get('/:document_namespace')->to('documents_list#list')->name('list');
 
 	my $delete = $main->under('/delete')->to('middleware#auth');
-	$delete->get("/:document_namespace/*page_path")->to('documents#delete_page')->name('delete-page');
-	$delete->post("/:document_namespace/*page_path")->to('documents#delete_page', stage => 'send');
+	$delete->get('/:document_namespace/*page_path')->to('documents#delete_page')->name('delete-page');
+	$delete->post('/:document_namespace/*page_path')->to('documents#delete_page', stage => 'send');
+
+	# where do we point root?
+	$main->get('/', sub ($c) { $c->redirect_to('global-list') });
 
 	# this is catch-all, so it must be last
-	$main->get("/:document_namespace/*page_path")->to('documents#page')->name('page');
+	$main->get('/:document_namespace/*page_path')->to('documents#page')->name('page');
 
 	return;
 }
