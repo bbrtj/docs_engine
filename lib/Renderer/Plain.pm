@@ -1,10 +1,13 @@
 package Renderer::Plain;
 
 use My::Moose;
-use Mojo::File qw(path);
 use header;
 
 with 'Role::Renderer';
+
+has DI->inject('file_accessor'), (
+	handles => ['get_file'],
+);
 
 use constant TEMPLATE => <<~HTML;
 	<pre>%s</pre>
@@ -12,6 +15,6 @@ HTML
 
 sub render ($self, $path)
 {
-	return sprintf TEMPLATE, path($path)->slurp;
+	return sprintf TEMPLATE, $self->get_file($path);
 }
 

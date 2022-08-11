@@ -2,6 +2,7 @@ package Component::FileAccessor;
 
 use My::Moose;
 use Mojo::File qw(path);
+use Encode qw(encode decode);
 use header;
 
 with 'Component::Accessor';
@@ -24,11 +25,13 @@ sub get_file_rendered ($self, $path)
 
 sub get_file ($self, $path)
 {
-	return $self->ensure_path_object($path)->slurp;
+	my $content = $self->ensure_path_object($path)->slurp;
+	return decode 'utf-8', $content;
 }
 
 sub save_file ($self, $path, $content)
 {
+	$content = encode 'utf-8', $content;
 	$self->ensure_path_object($path)->spurt($content);
 	$self->clear_cache($path);
 	return;

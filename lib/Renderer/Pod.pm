@@ -6,6 +6,10 @@ use header;
 
 with 'Role::Renderer';
 
+has DI->inject('file_accessor'), (
+	handles => ['get_file'],
+);
+
 sub render ($self, $path)
 {
 	my $parser = Pod::Simple::HTML->new;
@@ -18,7 +22,7 @@ sub render ($self, $path)
 	$parser->strip_verbatim_indent(sub { map { s/^\t// } $_[0]->@*; undef });
 
 	$parser->output_string(\my $output);
-	$parser->parse_file("$path");
+	$parser->parse_string_document($self->get_file($path));
 
 	return $output;
 }
