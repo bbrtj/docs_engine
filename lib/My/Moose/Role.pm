@@ -16,3 +16,9 @@ sub import ($self, @args)
 	return;
 }
 
+sub apply_to_object ($self, $object, @roles)
+{
+	Moo::Role->apply_roles_to_object($object, @roles);
+	return;
+}
+

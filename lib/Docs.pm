@@ -30,6 +30,13 @@ sub load_config ($self, $config)
 	$self->mode($config->getenv('APP_MODE'));
 	$self->secrets([split ',', $config->getenv('APP_SECRETS')]);
 
+	if ($config->getconfig('cache')) {
+		require My::Moose::Role;
+
+		My::Moose::Role->apply_to_object(DI->get('file_accessor'), 'Role::Cache');
+		My::Moose::Role->apply_to_object(DI->get('directory_accessor'), 'Role::Cache');
+	}
+
 	return;
 }
 

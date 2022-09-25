@@ -7,5 +7,6 @@
 		answer => 'To greet another day',
 		feedback => 'Infidel!',
 	},
+	cache => 0,
 )
 

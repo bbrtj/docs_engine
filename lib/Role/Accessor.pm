@@ -1,8 +1,10 @@
-package Component::Accessor;
+package Role::Accessor;
 
 use My::Moose::Role;
 use Mojo::File qw(path);
 use header;
+
+with 'Role::CacheDummy';
 
 has param 'config' => (
 	isa => Types::InstanceOf['Component::Config'],
@@ -11,11 +13,6 @@ has param 'config' => (
 has field 'directories' => (
 	isa => Types::ArrayRef,
 	lazy => 1,
-);
-
-has field 'cache' => (
-	isa => Types::HashRef,
-	default => sub { {} },
 );
 
 sub _build_directories ($self)
@@ -41,18 +38,7 @@ around 'can_be_accessed' => sub ($orig, $self, $path) {
 		return any { $real_path =~ $_ } $self->directories->@*;
 	}
 
-	return true if exists $self->cache->{$path};
+	return true if $self->has_cached($path);
 	return is_within_document_directories && $self->$orig($path);
 };
-
-sub get_or_store ($self, $path, $value_sref)
-{
-	return $self->cache->{$path} //= $value_sref->();
-}
-
-sub clear_cache ($self, $path)
-{
-	delete $self->cache->{$path};
-	return;
-}
 

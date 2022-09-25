@@ -5,7 +5,7 @@ use Mojo::File qw(path);
 use Encode qw(encode decode);
 use header;
 
-with 'Component::Accessor';
+with 'Role::Accessor';
 
 has param 'renderer' => (
 	isa => Types::InstanceOf['Component::Renderer'],

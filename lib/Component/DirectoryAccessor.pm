@@ -4,7 +4,7 @@ use My::Moose;
 use Mojo::File qw(path);
 use header;
 
-with 'Component::Accessor';
+with 'Role::Accessor';
 
 sub can_be_accessed ($self, $path)
 {
