@@ -7,10 +7,11 @@ Work in progress - works, but is very plain.
 ## Setup
 
 ### Requirements
-- you need Perl with Carmel or Carton module
+- Perl 5.36 with Carmel module
+- pandoc (for markdown files)
 
 ### Installation
 - copy *.example files in the root directory of the project and adjust their contents
 - run `carmel install && carmel rollout`
 - run `script/docs daemon`
-- done, navigate to your browser (IP / port will be printed). All directories from .config will be available for viewing
+- done, navigate to your browser (IP address / port will be printed). All directories from .config will be available for viewing
