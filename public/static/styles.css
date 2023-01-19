@@ -5,6 +5,7 @@
 html body {
 	padding: 0;
 	margin: 0;
+	font-family: DejaVu Sans Mono, sans-serif;
 }
 
 #document-toolbar {
@@ -33,5 +34,11 @@ html body {
 #document-form textarea {
 	width: 100%;
 	height: 500px;
+}
+
+@media print {
+	#document-toolbar {
+		display: none;
+	}
 }
 

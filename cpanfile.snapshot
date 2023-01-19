@@ -506,10 +506,10 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       base 0
       perl 5.006
-  Form-Diva-1.04
-    pathname: B/BR/BRTASTIC/Form-Diva-1.04.tar.gz
+  Form-Diva-1.05
+    pathname: B/BR/BRTASTIC/Form-Diva-1.05.tar.gz
     provides:
-      Form::Diva 1.04
+      Form::Diva 1.05
     requirements:
       ExtUtils::MakeMaker 0
       Storable 3.15
