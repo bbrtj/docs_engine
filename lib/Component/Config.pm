@@ -2,7 +2,7 @@ package Component::Config;
 
 use My::Moose;
 
-use Dotenv -load;
+use Env::Dot;
 use header;
 
 has field 'defaults' => (

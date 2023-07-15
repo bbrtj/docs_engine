@@ -1,10 +1,9 @@
 package header;
 
-use v5.36;
+use v5.38;
 use utf8;
 use Import::Into;
 use List::Util qw(any);
-use true;
 
 use Types;
 use DI;
@@ -21,15 +20,13 @@ sub import ($self, @args)
 {
 	my $pkg = caller;
 
-	feature->import::into($pkg, ':5.36', qw(try refaliasing declared_refs defer));
-	feature->unimport::out_of($pkg, qw(indirect));
+	feature->unimport::out_of($pkg, qw(:all));
+	feature->import::into($pkg, ':5.38', qw(try refaliasing declared_refs defer));
 	utf8->import::into($pkg);
 	Carp->import::into($pkg, qw(croak));
 	builtin->import::into($pkg, qw(true false indexed trim ceil floor));
 	Ref::Util->import::into($pkg, qw(is_arrayref is_hashref is_coderef));
 	List::Util->import::into($pkg, qw(first any mesh));
-
-	true->import::into($pkg);
 
 	no_experimental_warnings($pkg);
 

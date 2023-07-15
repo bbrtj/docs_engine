@@ -1,6 +1,6 @@
 package DI;
 
-use v5.36;
+use v5.38;
 use Beam::Wire;
 use Mooish::AttributeBuilder;
 
@@ -35,7 +35,7 @@ sub inject ($class, $name)
 
 	return field $name => (
 		isa => Types::InstanceOf[$config->{class}],
-		default => sub { $class->get($name) },
+		lazy => sub { $class->get($name) },
 	);
 }
 

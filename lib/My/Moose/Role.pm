@@ -1,6 +1,6 @@
 package My::Moose::Role;
 
-use v5.36;
+use v5.38;
 
 require Moo::Role;
 require Mooish::AttributeBuilder;

@@ -7,7 +7,7 @@ Work in progress - works, but is very plain.
 ## Setup
 
 ### Requirements
-- Perl 5.36 with Carmel module
+- Perl 5.38 with Carmel module
 - pandoc (for markdown files)
 
 ### Installation
@@ -15,3 +15,4 @@ Work in progress - works, but is very plain.
 - run `carmel install && carmel rollout`
 - run `script/docs daemon`
 - done, navigate to your browser (IP address / port will be printed). All directories from .config will be available for viewing
+

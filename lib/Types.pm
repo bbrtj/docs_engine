@@ -1,6 +1,6 @@
 package Types;
 
-use v5.36;
+use v5.38;
 
 use Type::Libraries;
 use Type::Tiny;
@@ -13,6 +13,4 @@ Type::Libraries->setup_class(
 		Types::Common::String
 	),
 );
-
-1;
 
