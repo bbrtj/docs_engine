@@ -1,3 +1,6 @@
+db:
+    class: Component::DB
+
 config:
     class: Component::Config
 

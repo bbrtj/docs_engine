@@ -60,6 +60,9 @@ sub load_routes ($self, $config)
 	$edit->get('/:document_namespace/*page_path')->to('documents#edit_page')->name('edit-page');
 	$edit->post('/:document_namespace/*page_path')->to('documents#edit_page', stage => 'send');
 
+	my $mark = $main->under('/mark')->to('middleware#auth');
+	$mark->get('/:document_namespace/*page_path')->to('documents#mark_page')->name('mark-page');
+
 	my $list = $main->under('/list');
 	$list->get('/')->to('documents_list#global_list')->name('global-list');
 	$list->get('/:document_namespace')->to('documents_list#list')->name('list');

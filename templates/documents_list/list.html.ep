@@ -10,14 +10,23 @@
 			%= link_to Namespaces => url_for("global-list")
 		</li>
 	</ul>
+	<ul>
+		<li>Sort:</li>
+		<li>
+			%= link_to Default => url_for("list")
+		</li>
+		<li>
+			%= link_to Alphabetical => url_for("list")->query(sort => "alphabetical")
+		</li>
+	</ul>
 </div>
 
 <div id="document-contents">
 	<h1>Listing for <%= $list_path %></h1>
 	<ul>
 	% for my $file ($list->@*) {
-		<li>
-		%= link_to $file => url_for("page", document_namespace => $document_namespace, page_path => $file)
+		<li class="<%= $file->{marked} ? 'marked' : '' %>">
+		%= link_to $file->{filename} => url_for("page", document_namespace => $document_namespace, page_path => $file->{filename})
 		</li>
 	% }
 	</ul>

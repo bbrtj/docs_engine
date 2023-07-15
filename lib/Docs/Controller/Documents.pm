@@ -10,23 +10,26 @@ extends 'Docs::Controller';
 
 has DI->inject('file_accessor');
 has DI->inject('directory_accessor');
+has DI->inject('db');
 
-sub _standard_request ($self, $specfifc_part_sref)
+sub _standard_request ($self, $specific_part_sref)
 {
 	my $path = $self->param('page_path');
-	my $base = $self->resolve_namespace;
+	my $namespace = $self->param('document_namespace');
+	my $base = $self->resolve_namespace($namespace);
 	my $real_path = path($base)->child($path);
 
 	Exception::NotFound->raise
 		unless $self->file_accessor->can_be_accessed($real_path);
 
-	return $specfifc_part_sref->($path, $real_path);
+	return $specific_part_sref->($namespace, $path, $real_path);
 }
 
 sub page ($self)
 {
 	return $self->request_wrapper(sub {
-		$self->_standard_request(sub ($path, $real_path) {
+		$self->_standard_request(sub ($namespace, $path, $real_path) {
+			$self->db->add_view($namespace, $path);
 			$self->stash(
 				document_path => $path,
 				document => $self->file_accessor->get_file_rendered($real_path)
@@ -66,7 +69,7 @@ sub new_page ($self)
 sub edit_page ($self)
 {
 	return $self->request_wrapper(sub {
-		$self->_standard_request(sub ($path, $real_path) {
+		$self->_standard_request(sub ($namespace, $path, $real_path) {
 			my $form = Docs::Form::Document->new;
 
 			if (($self->stash->{stage} // '') eq 'send') {
@@ -93,7 +96,7 @@ sub edit_page ($self)
 sub delete_page ($self)
 {
 	return $self->request_wrapper(sub {
-		$self->_standard_request(sub ($path, $real_path) {
+		$self->_standard_request(sub ($namespace, $path, $real_path) {
 			if (($self->stash->{stage} // '') eq 'send') {
 				$self->directory_accessor->delete_file($self->resolve_namespace, $path);
 				return $self->redirect_to('list');
@@ -102,6 +105,16 @@ sub delete_page ($self)
 			$self->stash(
 				document_path => $path,
 			)->render;
+		})
+	});
+}
+
+sub mark_page ($self)
+{
+	return $self->request_wrapper(sub {
+		$self->_standard_request(sub ($namespace, $path, $real_path) {
+			$self->db->switch_mark($namespace, $path);
+			return $self->redirect_to('list');
 		})
 	});
 }

@@ -1,10 +1,9 @@
 requires 'Moo' => 0;
 requires 'Mooish::AttributeBuilder' => 0;
 
-requires 'DBIx::Class' => 0;
+requires 'DBI' => 0;
 requires 'DBD::SQLite' => 0;
 
-requires 'all' => 0;
 requires 'Beam::Wire' => 0;
 requires 'Env::Dot' => 0;
 

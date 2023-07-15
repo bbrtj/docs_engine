@@ -8,9 +8,8 @@ extends 'Mojolicious::Controller';
 
 has DI->inject('config');
 
-sub resolve_namespace ($self)
+sub resolve_namespace ($self, $namespace = $self->param('document_namespace'))
 {
-	my $namespace = $self->param('document_namespace');
 	my $exists = $self->config->getconfig('document_directories')->{$namespace};
 
 	return $exists

@@ -1,13 +1,5 @@
 # carton snapshot format: version 1.0
 DISTRIBUTIONS
-  Algorithm-C3-0.11
-    pathname: H/HA/HAARG/Algorithm-C3-0.11.tar.gz
-    provides:
-      Algorithm::C3 0.11
-    requirements:
-      Carp 0.01
-      ExtUtils::MakeMaker 0
-      perl 5.006
   B-Hooks-EndOfScope-0.26
     pathname: E/ET/ETHER/B-Hooks-EndOfScope-0.26.tar.gz
     provides:
@@ -77,54 +69,12 @@ DISTRIBUTIONS
       Types::Standard 0
       YAML 0
       perl 5.010
-  Class-Accessor-Grouped-0.10014
-    pathname: H/HA/HAARG/Class-Accessor-Grouped-0.10014.tar.gz
-    provides:
-      Class::Accessor::Grouped 0.10014
-    requirements:
-      Carp 0
-      Class::XSAccessor 1.19
-      ExtUtils::MakeMaker 0
-      Module::Runtime 0.012
-      Scalar::Util 0
-      Sub::Name 0.05
-      perl 5.006
-  Class-C3-0.35
-    pathname: H/HA/HAARG/Class-C3-0.35.tar.gz
-    provides:
-      Class::C3 0.35
-    requirements:
-      Algorithm::C3 0.07
-      ExtUtils::MakeMaker 0
-      Scalar::Util 0
-      perl 5.006
-  Class-C3-Componentised-1.001002
-    pathname: H/HA/HAARG/Class-C3-Componentised-1.001002.tar.gz
-    provides:
-      Class::C3::Componentised 1.001002
-      Class::C3::Componentised::ApplyHooks undef
-    requirements:
-      Class::C3 0.20
-      Class::Inspector 1.32
-      ExtUtils::MakeMaker 0
-      MRO::Compat 0.09
-      perl 5.006002
   Class-Data-Inheritable-0.09
     pathname: R/RS/RSHERER/Class-Data-Inheritable-0.09.tar.gz
     provides:
       Class::Data::Inheritable 0.09
     requirements:
       ExtUtils::MakeMaker 0
-  Class-Inspector-1.36
-    pathname: P/PL/PLICEASE/Class-Inspector-1.36.tar.gz
-    provides:
-      Class::Inspector 1.36
-      Class::Inspector::Functions 1.36
-    requirements:
-      ExtUtils::MakeMaker 0
-      File::Spec 0.80
-      base 0
-      perl 5.008
   Class-Method-Modifiers-2.13
     pathname: E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz
     provides:
@@ -149,14 +99,6 @@ DISTRIBUTIONS
       Time::HiRes 0
       XSLoader 0
       perl 5.008
-  Clone-Choose-0.010
-    pathname: H/HE/HERMES/Clone-Choose-0.010.tar.gz
-    provides:
-      Clone::Choose 0.010
-    requirements:
-      ExtUtils::MakeMaker 0
-      Storable 0
-      perl 5.008001
   Config-Any-0.32
     pathname: H/HA/HAARG/Config-Any-0.32.tar.gz
     provides:
@@ -170,18 +112,6 @@ DISTRIBUTIONS
       Config::Any::YAML undef
     requirements:
       Module::Pluggable::Object 3.6
-  Context-Preserve-0.03
-    pathname: E/ET/ETHER/Context-Preserve-0.03.tar.gz
-    provides:
-      Context::Preserve 0.03
-    requirements:
-      Carp 0
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      base 0
-      perl 5.006
-      strict 0
-      warnings 0
   DBD-SQLite-1.70
     pathname: I/IS/ISHIGAKI/DBD-SQLite-1.70.tar.gz
     provides:
@@ -303,128 +233,6 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 6.48
       Test::Simple 0.90
       perl 5.008001
-  DBIx-Class-0.082842
-    pathname: R/RI/RIBASUSHI/DBIx-Class-0.082842.tar.gz
-    provides:
-      DBIx::Class 0.082842
-      DBIx::Class::AccessorGroup undef
-      DBIx::Class::Admin undef
-      DBIx::Class::CDBICompat undef
-      DBIx::Class::Core undef
-      DBIx::Class::Cursor undef
-      DBIx::Class::DB undef
-      DBIx::Class::Exception undef
-      DBIx::Class::FilterColumn undef
-      DBIx::Class::InflateColumn undef
-      DBIx::Class::InflateColumn::DateTime undef
-      DBIx::Class::InflateColumn::File undef
-      DBIx::Class::Optional::Dependencies undef
-      DBIx::Class::Ordered undef
-      DBIx::Class::PK undef
-      DBIx::Class::PK::Auto undef
-      DBIx::Class::Relationship undef
-      DBIx::Class::Relationship::Base undef
-      DBIx::Class::ResultClass::HashRefInflator undef
-      DBIx::Class::ResultSet undef
-      DBIx::Class::ResultSet::Pager undef
-      DBIx::Class::ResultSetColumn undef
-      DBIx::Class::ResultSetManager undef
-      DBIx::Class::ResultSource undef
-      DBIx::Class::ResultSource::Table undef
-      DBIx::Class::ResultSource::View undef
-      DBIx::Class::ResultSourceHandle undef
-      DBIx::Class::ResultSourceProxy::Table undef
-      DBIx::Class::Row undef
-      DBIx::Class::SQLMaker undef
-      DBIx::Class::SQLMaker::ClassicExtensions undef
-      DBIx::Class::SQLMaker::LimitDialects undef
-      DBIx::Class::SQLMaker::OracleJoins undef
-      DBIx::Class::Schema undef
-      DBIx::Class::Schema::Versioned undef
-      DBIx::Class::Serialize::Storable undef
-      DBIx::Class::StartupCheck undef
-      DBIx::Class::Storage undef
-      DBIx::Class::Storage::DBI undef
-      DBIx::Class::Storage::DBI::ACCESS undef
-      DBIx::Class::Storage::DBI::ADO undef
-      DBIx::Class::Storage::DBI::ADO::MS_Jet undef
-      DBIx::Class::Storage::DBI::ADO::MS_Jet::Cursor undef
-      DBIx::Class::Storage::DBI::ADO::Microsoft_SQL_Server undef
-      DBIx::Class::Storage::DBI::ADO::Microsoft_SQL_Server::Cursor undef
-      DBIx::Class::Storage::DBI::AutoCast undef
-      DBIx::Class::Storage::DBI::Cursor undef
-      DBIx::Class::Storage::DBI::DB2 undef
-      DBIx::Class::Storage::DBI::Firebird undef
-      DBIx::Class::Storage::DBI::Firebird::Common undef
-      DBIx::Class::Storage::DBI::IdentityInsert undef
-      DBIx::Class::Storage::DBI::Informix undef
-      DBIx::Class::Storage::DBI::InterBase undef
-      DBIx::Class::Storage::DBI::MSSQL undef
-      DBIx::Class::Storage::DBI::NoBindVars undef
-      DBIx::Class::Storage::DBI::ODBC undef
-      DBIx::Class::Storage::DBI::ODBC::ACCESS undef
-      DBIx::Class::Storage::DBI::ODBC::DB2_400_SQL undef
-      DBIx::Class::Storage::DBI::ODBC::Firebird undef
-      DBIx::Class::Storage::DBI::ODBC::Microsoft_SQL_Server undef
-      DBIx::Class::Storage::DBI::ODBC::SQL_Anywhere undef
-      DBIx::Class::Storage::DBI::Oracle undef
-      DBIx::Class::Storage::DBI::Oracle::Generic undef
-      DBIx::Class::Storage::DBI::Oracle::WhereJoins undef
-      DBIx::Class::Storage::DBI::Pg undef
-      DBIx::Class::Storage::DBI::Replicated undef
-      DBIx::Class::Storage::DBI::Replicated::Balancer undef
-      DBIx::Class::Storage::DBI::Replicated::Balancer::First undef
-      DBIx::Class::Storage::DBI::Replicated::Balancer::Random undef
-      DBIx::Class::Storage::DBI::Replicated::Pool undef
-      DBIx::Class::Storage::DBI::Replicated::Replicant undef
-      DBIx::Class::Storage::DBI::Replicated::WithDSN undef
-      DBIx::Class::Storage::DBI::SQLAnywhere undef
-      DBIx::Class::Storage::DBI::SQLAnywhere::Cursor undef
-      DBIx::Class::Storage::DBI::SQLite undef
-      DBIx::Class::Storage::DBI::Sybase undef
-      DBIx::Class::Storage::DBI::Sybase::ASE undef
-      DBIx::Class::Storage::DBI::Sybase::ASE::NoBindVars undef
-      DBIx::Class::Storage::DBI::Sybase::FreeTDS undef
-      DBIx::Class::Storage::DBI::Sybase::MSSQL undef
-      DBIx::Class::Storage::DBI::Sybase::Microsoft_SQL_Server undef
-      DBIx::Class::Storage::DBI::Sybase::Microsoft_SQL_Server::NoBindVars undef
-      DBIx::Class::Storage::DBI::UniqueIdentifier undef
-      DBIx::Class::Storage::DBI::mysql undef
-      DBIx::Class::Storage::Debug::PrettyTrace undef
-      DBIx::Class::Storage::Statistics undef
-      DBIx::Class::Storage::TxnScopeGuard undef
-      DBIx::Class::UTF8Columns undef
-      SQL::Translator::Parser::DBIx::Class 1.10
-      SQL::Translator::Producer::DBIx::Class::File 0.1
-    requirements:
-      Class::Accessor::Grouped 0.10012
-      Class::C3::Componentised 1.0009
-      Class::Inspector 1.24
-      Config::Any 0.20
-      Context::Preserve 0.01
-      DBD::SQLite 1.29
-      DBI 1.57
-      Data::Dumper::Concise 2.020
-      Devel::GlobalDestruction 0.09
-      ExtUtils::MakeMaker 6.59
-      File::Temp 0.22
-      Hash::Merge 0.12
-      MRO::Compat 0.12
-      Module::Find 0.07
-      Moo 2.000
-      Package::Stash 0.28
-      Path::Class 0.18
-      SQL::Abstract::Classic 1.91
-      Scope::Guard 0.03
-      Sub::Name 0.04
-      Test::Deep 0.101
-      Test::Exception 0.31
-      Test::More 0.94
-      Test::Warn 0.21
-      Text::Balanced 2.00
-      Try::Tiny 0.07
-      namespace::clean 0.24
-      perl 5.008001
   Data-DPath-0.58
     pathname: S/SC/SCHWIGON/Data-DPath-0.58.tar.gz
     provides:
@@ -453,17 +261,6 @@ DISTRIBUTIONS
       perl 5.008
       strict 0
       warnings 0
-  Data-Dumper-Concise-2.023
-    pathname: E/ET/ETHER/Data-Dumper-Concise-2.023.tar.gz
-    provides:
-      Data::Dumper::Concise 2.023
-      Data::Dumper::Concise::Sugar 2.023
-      Devel::Dwarn undef
-    requirements:
-      Data::Dumper 0
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      perl 5.006
   Data-OptList-0.112
     pathname: R/RJ/RJBS/Data-OptList-0.112.tar.gz
     provides:
@@ -671,15 +468,6 @@ DISTRIBUTIONS
       Form::Tiny 2.04
       Moo 2.000000
       perl 5.010001
-  Hash-Merge-0.302
-    pathname: H/HE/HERMES/Hash-Merge-0.302.tar.gz
-    provides:
-      Hash::Merge 0.302
-    requirements:
-      Clone::Choose 0.008
-      ExtUtils::MakeMaker 6.64
-      Scalar::Util 0
-      perl 5.008001
   IPC-Run3-0.048
     pathname: R/RJ/RJBS/IPC-Run3-0.048.tar.gz
     provides:
@@ -840,16 +628,6 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  Module-Find-0.15
-    pathname: C/CR/CRENZ/Module-Find-0.15.tar.gz
-    provides:
-      Module::Find 0.15
-    requirements:
-      ExtUtils::MakeMaker 0
-      File::Find 0
-      File::Spec 0
-      Test::More 0
-      perl 5.006001
   Module-Implementation-0.09
     pathname: D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
     provides:
@@ -1129,31 +907,6 @@ DISTRIBUTIONS
       overload 0
       strict 0
       warnings 0
-  Path-Class-0.37
-    pathname: K/KW/KWILLIAMS/Path-Class-0.37.tar.gz
-    provides:
-      Path::Class 0.37
-      Path::Class::Dir 0.37
-      Path::Class::Entity 0.37
-      Path::Class::File 0.37
-    requirements:
-      Carp 0
-      Cwd 0
-      Exporter 0
-      ExtUtils::MakeMaker 6.30
-      File::Copy 0
-      File::Path 0
-      File::Spec 3.26
-      File::Temp 0
-      File::stat 0
-      IO::Dir 0
-      IO::File 0
-      Module::Build 0.3601
-      Perl::OSType 0
-      Scalar::Util 0
-      overload 0
-      parent 0
-      strict 0
   Path-Tiny-0.122
     pathname: D/DA/DAGOLDEN/Path-Tiny-0.122.tar.gz
     provides:
@@ -1208,60 +961,6 @@ DISTRIBUTIONS
     requirements:
       Exporter 5.57
       perl 5.006
-  SQL-Abstract-2.000001
-    pathname: M/MS/MSTROUT/SQL-Abstract-2.000001.tar.gz
-    provides:
-      Chunkstrumenter undef
-      DBIx::Class::SQLMaker::Role::SQLA2Passthrough undef
-      SQL::Abstract 2.000001
-      SQL::Abstract::Formatter undef
-      SQL::Abstract::Parts undef
-      SQL::Abstract::Plugin::BangOverrides undef
-      SQL::Abstract::Plugin::ExtraClauses undef
-      SQL::Abstract::Reference undef
-      SQL::Abstract::Role::Plugin undef
-      SQL::Abstract::Test undef
-      SQL::Abstract::Tree undef
-    requirements:
-      Exporter 5.57
-      ExtUtils::MakeMaker 0
-      Hash::Merge 0.12
-      List::Util 0
-      MRO::Compat 0.12
-      Moo 2.000001
-      Scalar::Util 0
-      Sub::Quote 2.000001
-      Test::Builder::Module 0.84
-      Test::Deep 0.101
-      Text::Balanced 2.00
-      perl 5.006
-  SQL-Abstract-Classic-1.91
-    pathname: R/RI/RIBASUSHI/SQL-Abstract-Classic-1.91.tar.gz
-    provides:
-      SQL::Abstract::Classic 1.91
-      SQL::Abstract::Util undef
-    requirements:
-      Exporter 5.57
-      ExtUtils::MakeMaker 6.59
-      List::Util 0
-      MRO::Compat 0.12
-      SQL::Abstract 1.79
-      Scalar::Util 0
-      Storable 0
-      Test::Deep 0.101
-      Test::Exception 0.31
-      Test::More 0.88
-      Test::Warn 0
-      Text::Balanced 2.00
-      perl 5.006
-  Scope-Guard-0.21
-    pathname: C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
-    provides:
-      Scope::Guard 0.21
-    requirements:
-      ExtUtils::MakeMaker 0
-      Test::More 0
-      perl 5.006001
   Specio-0.48
     pathname: D/DR/DROLSKY/Specio-0.48.tar.gz
     provides:
@@ -1370,17 +1069,6 @@ DISTRIBUTIONS
       Scalar::Util 0
       strict 0
       warnings 0
-  Sub-Name-0.26
-    pathname: E/ET/ETHER/Sub-Name-0.26.tar.gz
-    provides:
-      Sub::Name 0.26
-    requirements:
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      XSLoader 0
-      perl 5.006
-      strict 0
-      warnings 0
   Sub-Quote-2.006006
     pathname: H/HA/HAARG/Sub-Quote-2.006006.tar.gz
     provides:
@@ -1390,17 +1078,6 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Scalar::Util 0
       perl 5.006
-  Sub-Uplevel-0.2800
-    pathname: D/DA/DAGOLDEN/Sub-Uplevel-0.2800.tar.gz
-    provides:
-      Sub::Uplevel 0.2800
-    requirements:
-      Carp 0
-      ExtUtils::MakeMaker 6.17
-      constant 0
-      perl 5.006
-      strict 0
-      warnings 0
   Syntax-Keyword-Match-0.09
     pathname: P/PE/PEVANS/Syntax-Keyword-Match-0.09.tar.gz
     provides:
@@ -1412,81 +1089,6 @@ DISTRIBUTIONS
       XS::Parse::Keyword 0.14
       XS::Parse::Keyword::Builder 0.14
       perl 5.016
-  Test-Deep-1.130
-    pathname: R/RJ/RJBS/Test-Deep-1.130.tar.gz
-    provides:
-      Test::Deep 1.130
-      Test::Deep::All undef
-      Test::Deep::Any undef
-      Test::Deep::Array undef
-      Test::Deep::ArrayEach undef
-      Test::Deep::ArrayElementsOnly undef
-      Test::Deep::ArrayLength undef
-      Test::Deep::ArrayLengthOnly undef
-      Test::Deep::Blessed undef
-      Test::Deep::Boolean undef
-      Test::Deep::Cache undef
-      Test::Deep::Cache::Simple undef
-      Test::Deep::Class undef
-      Test::Deep::Cmp undef
-      Test::Deep::Code undef
-      Test::Deep::Hash undef
-      Test::Deep::HashEach undef
-      Test::Deep::HashElements undef
-      Test::Deep::HashKeys undef
-      Test::Deep::HashKeysOnly undef
-      Test::Deep::Ignore undef
-      Test::Deep::Isa undef
-      Test::Deep::ListMethods undef
-      Test::Deep::MM undef
-      Test::Deep::Methods undef
-      Test::Deep::NoTest undef
-      Test::Deep::None undef
-      Test::Deep::Number undef
-      Test::Deep::Obj undef
-      Test::Deep::Ref undef
-      Test::Deep::RefType undef
-      Test::Deep::Regexp undef
-      Test::Deep::RegexpMatches undef
-      Test::Deep::RegexpOnly undef
-      Test::Deep::RegexpRef undef
-      Test::Deep::RegexpRefOnly undef
-      Test::Deep::RegexpVersion undef
-      Test::Deep::ScalarRef undef
-      Test::Deep::ScalarRefOnly undef
-      Test::Deep::Set undef
-      Test::Deep::Shallow undef
-      Test::Deep::Stack undef
-      Test::Deep::String undef
-      Test::Deep::SubHash undef
-      Test::Deep::SubHashElements undef
-      Test::Deep::SubHashKeys undef
-      Test::Deep::SubHashKeysOnly undef
-      Test::Deep::SuperHash undef
-      Test::Deep::SuperHashElements undef
-      Test::Deep::SuperHashKeys undef
-      Test::Deep::SuperHashKeysOnly undef
-    requirements:
-      ExtUtils::MakeMaker 0
-      List::Util 1.09
-      Scalar::Util 1.09
-      Test::Builder 0
-  Test-Exception-0.43
-    pathname: E/EX/EXODIST/Test-Exception-0.43.tar.gz
-    provides:
-      Test::Exception 0.43
-    requirements:
-      Carp 0
-      Exporter 0
-      ExtUtils::MakeMaker 0
-      Sub::Uplevel 0.18
-      Test::Builder 0.7
-      Test::Builder::Tester 1.07
-      Test::Harness 2.03
-      base 0
-      perl 5.006001
-      strict 0
-      warnings 0
   Test-Fatal-0.016
     pathname: R/RJ/RJBS/Test-Fatal-0.016.tar.gz
     provides:
@@ -1499,17 +1101,6 @@ DISTRIBUTIONS
       Try::Tiny 0.07
       strict 0
       warnings 0
-  Test-Warn-0.36
-    pathname: B/BI/BIGJ/Test-Warn-0.36.tar.gz
-    provides:
-      Test::Warn 0.36
-    requirements:
-      Carp 1.22
-      ExtUtils::MakeMaker 0
-      Sub::Uplevel 0.12
-      Test::Builder 0.13
-      Test::Builder::Tester 1.02
-      perl 5.006
   Throwable-1.000
     pathname: R/RJ/RJBS/Throwable-1.000.tar.gz
     provides:
@@ -1673,14 +1264,6 @@ DISTRIBUTIONS
       perl 5.006
       strict 0
       warnings 0
-  all-0.5101
-    pathname: D/DE/DEXTER/all-0.5101.tar.gz
-    provides:
-      all 0.5101
-    requirements:
-      File::Find 0
-      File::Spec 0
-      perl 5.006
   namespace-autoclean-0.29
     pathname: E/ET/ETHER/namespace-autoclean-0.29.tar.gz
     provides:

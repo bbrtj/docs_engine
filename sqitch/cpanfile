@@ -1,0 +1,7 @@
+# note: install with cpanm, not carmel.
+
+requires 'App::Sqitch';
+requires 'DBD::SQLite';
+
+# vim: ft=perl
+
