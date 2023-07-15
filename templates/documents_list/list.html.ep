@@ -7,6 +7,9 @@
 			%= link_to 'New page' => url_for("new-page", document_namespace => $document_namespace)
 		</li>
 		<li>
+			%= link_to Search => url_for("search")
+		</li>
+		<li>
 			%= link_to Namespaces => url_for("global-list")
 		</li>
 	</ul>

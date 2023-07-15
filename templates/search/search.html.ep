@@ -1,0 +1,47 @@
+% layout 'default';
+% title "Search - $list_path";
+
+<div id="document-toolbar">
+	<ul>
+		<li>
+			%= link_to List => url_for("list", document_namespace => $document_namespace)
+		</li>
+		<li>
+			%= link_to Reindex => url_for("reindex", document_namespace => $document_namespace)
+		</li>
+	</ul>
+</div>
+
+<div id="document-contents">
+	<form method="POST" action="" id="search-form">
+		%== $form->diva->hidden
+
+		<p>
+			%== $form->diva->form_errors
+		</p>
+
+		% for my $field ($form->diva->generate->@*) {
+			<p>
+				%== $field->{label}
+				%== $field->{input}
+				%== $field->{errors}
+			</p>
+		% }
+
+		<p>
+			<input type="submit" value="Send">
+		</p>
+	</form>
+
+	% if (defined $found) {
+		<h1>Search results</h1>
+		<ul>
+		% for my $match ($found->@*) {
+			<li>
+			%= link_to "$match->{filename} ($match->{seen} matches)" => url_for("page", document_namespace => $document_namespace, page_path => $match->{filename})
+			</li>
+		% }
+		</ul>
+	% }
+</div>
+

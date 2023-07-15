@@ -67,6 +67,13 @@ sub load_routes ($self, $config)
 	$list->get('/')->to('documents_list#global_list')->name('global-list');
 	$list->get('/:document_namespace')->to('documents_list#list')->name('list');
 
+	my $search = $main->under('/search');
+	$search->get('/:document_namespace/')->to('search#search')->name('search');
+	$search->post('/:document_namespace/')->to('search#search', stage => 'send');
+
+	my $reindex = $main->under('/reindex')->to('middleware#auth');
+	$reindex->get('/:document_namespace')->to('search#reindex')->name('reindex');
+
 	my $delete = $main->under('/delete')->to('middleware#auth');
 	$delete->get('/:document_namespace/*page_path')->to('documents#delete_page')->name('delete-page');
 	$delete->post('/:document_namespace/*page_path')->to('documents#delete_page', stage => 'send');
