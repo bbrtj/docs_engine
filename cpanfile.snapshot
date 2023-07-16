@@ -75,10 +75,10 @@ DISTRIBUTIONS
       Class::Data::Inheritable 0.09
     requirements:
       ExtUtils::MakeMaker 0
-  Class-Method-Modifiers-2.13
-    pathname: E/ET/ETHER/Class-Method-Modifiers-2.13.tar.gz
+  Class-Method-Modifiers-2.15
+    pathname: E/ET/ETHER/Class-Method-Modifiers-2.15.tar.gz
     provides:
-      Class::Method::Modifiers 2.13
+      Class::Method::Modifiers 2.15
     requirements:
       B 0
       Carp 0
@@ -99,10 +99,10 @@ DISTRIBUTIONS
       Time::HiRes 0
       XSLoader 0
       perl 5.008
-  Config-Any-0.32
-    pathname: H/HA/HAARG/Config-Any-0.32.tar.gz
+  Config-Any-0.33
+    pathname: H/HA/HAARG/Config-Any-0.33.tar.gz
     provides:
-      Config::Any 0.32
+      Config::Any 0.33
       Config::Any::Base undef
       Config::Any::General undef
       Config::Any::INI undef
@@ -112,14 +112,14 @@ DISTRIBUTIONS
       Config::Any::YAML undef
     requirements:
       Module::Pluggable::Object 3.6
-  DBD-SQLite-1.70
-    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.70.tar.gz
+  DBD-SQLite-1.72
+    pathname: I/IS/ISHIGAKI/DBD-SQLite-1.72.tar.gz
     provides:
-      DBD::SQLite 1.70
+      DBD::SQLite 1.72
       DBD::SQLite::Constants undef
       DBD::SQLite::GetInfo undef
-      DBD::SQLite::VirtualTable 1.70
-      DBD::SQLite::VirtualTable::Cursor 1.70
+      DBD::SQLite::VirtualTable 1.72
+      DBD::SQLite::VirtualTable::Cursor 1.72
       DBD::SQLite::VirtualTable::FileContent undef
       DBD::SQLite::VirtualTable::FileContent::Cursor undef
       DBD::SQLite::VirtualTable::PerlData undef
@@ -261,15 +261,16 @@ DISTRIBUTIONS
       perl 5.008
       strict 0
       warnings 0
-  Data-OptList-0.112
-    pathname: R/RJ/RJBS/Data-OptList-0.112.tar.gz
+  Data-OptList-0.114
+    pathname: R/RJ/RJBS/Data-OptList-0.114.tar.gz
     provides:
-      Data::OptList 0.112
+      Data::OptList 0.114
     requirements:
       ExtUtils::MakeMaker 6.78
       List::Util 0
       Params::Util 0
       Sub::Install 0.921
+      perl 5.012
       strict 0
       warnings 0
   Devel-GlobalDestruction-0.14
@@ -353,11 +354,11 @@ DISTRIBUTIONS
       perl 5.008001
       strict 0
       warnings 0
-  Exporter-Tiny-1.002002
-    pathname: T/TO/TOBYINK/Exporter-Tiny-1.002002.tar.gz
+  Exporter-Tiny-1.006002
+    pathname: T/TO/TOBYINK/Exporter-Tiny-1.006002.tar.gz
     provides:
-      Exporter::Shiny 1.002002
-      Exporter::Tiny 1.002002
+      Exporter::Shiny 1.006002
+      Exporter::Tiny 1.006002
     requirements:
       ExtUtils::MakeMaker 6.17
       perl 5.006001
@@ -425,49 +426,50 @@ DISTRIBUTIONS
       perl 5.012
       strict 0
       warnings 0
-  Form-Tiny-2.12
-    pathname: B/BR/BRTASTIC/Form-Tiny-2.12.tar.gz
+  Form-Tiny-2.17
+    pathname: B/BR/BRTASTIC/Form-Tiny-2.17.tar.gz
     provides:
-      Form::Tiny 2.12
-      Form::Tiny::Error 2.12
-      Form::Tiny::Error::DoesNotValidate 2.12
-      Form::Tiny::Error::InvalidFormat 2.12
-      Form::Tiny::Error::IsntStrict 2.12
-      Form::Tiny::Error::NestedFormError 2.12
-      Form::Tiny::Error::Required 2.12
-      Form::Tiny::FieldDefinition 2.12
-      Form::Tiny::FieldDefinitionBuilder 2.12
-      Form::Tiny::Filter 2.12
-      Form::Tiny::Form 2.12
-      Form::Tiny::Hook 2.12
-      Form::Tiny::Inline 2.12
-      Form::Tiny::Inline::Builder 2.12
-      Form::Tiny::Meta 2.12
-      Form::Tiny::Meta::Filtered 2.12
-      Form::Tiny::Meta::Strict 2.12
-      Form::Tiny::Path 2.12
-      Form::Tiny::Plugin 2.12
-      Form::Tiny::Utils 2.12
+      Form::Tiny 2.17
+      Form::Tiny::Error 2.17
+      Form::Tiny::Error::DoesNotValidate 2.17
+      Form::Tiny::Error::InvalidFormat 2.17
+      Form::Tiny::Error::IsntStrict 2.17
+      Form::Tiny::Error::NestedFormError 2.17
+      Form::Tiny::Error::Required 2.17
+      Form::Tiny::FieldDefinition 2.17
+      Form::Tiny::FieldDefinitionBuilder 2.17
+      Form::Tiny::Form 2.17
+      Form::Tiny::Hook 2.17
+      Form::Tiny::Inline 2.17
+      Form::Tiny::Inline::Builder 2.17
+      Form::Tiny::Inline::Form 2.17
+      Form::Tiny::Meta 2.17
+      Form::Tiny::Path 2.17
+      Form::Tiny::Plugin 2.17
+      Form::Tiny::Plugin::Base 2.17
+      Form::Tiny::Plugin::Filtered 2.17
+      Form::Tiny::Plugin::Filtered::Filter 2.17
+      Form::Tiny::Plugin::Strict 2.17
+      Form::Tiny::Utils 2.17
     requirements:
       ExtUtils::MakeMaker 0
       Import::Into 0
       Moo 2.000000
       Sub::Util 0
       Type::Tiny 1.004000
-      namespace::clean 0
-      perl 5.010001
-  Form-Tiny-Plugin-Diva-1.02
-    pathname: B/BR/BRTASTIC/Form-Tiny-Plugin-Diva-1.02.tar.gz
+      perl 5.010
+  Form-Tiny-Plugin-Diva-1.03
+    pathname: B/BR/BRTASTIC/Form-Tiny-Plugin-Diva-1.03.tar.gz
     provides:
-      Form::Tiny::Plugin::Diva 1.02
-      Form::Tiny::Plugin::Diva::Adapter 1.02
-      Form::Tiny::Plugin::Diva::MetaRole 1.02
+      Form::Tiny::Plugin::Diva 1.03
+      Form::Tiny::Plugin::Diva::Adapter 1.03
+      Form::Tiny::Plugin::Diva::MetaRole 1.03
     requirements:
       ExtUtils::MakeMaker 0
       Form::Diva 0
       Form::Tiny 2.04
       Moo 2.000000
-      perl 5.010001
+      perl 5.010
   IPC-Run3-0.048
     pathname: R/RJ/RJBS/IPC-Run3-0.048.tar.gz
     provides:
@@ -503,27 +505,27 @@ DISTRIBUTIONS
       ExtUtils::MakeMaker 0
       Iterator 0.01
       Test::Simple 0.40
-  Log-Dispatch-2.70
-    pathname: D/DR/DROLSKY/Log-Dispatch-2.70.tar.gz
+  Log-Dispatch-2.71
+    pathname: D/DR/DROLSKY/Log-Dispatch-2.71.tar.gz
     provides:
-      Log::Dispatch 2.70
-      Log::Dispatch::ApacheLog 2.70
-      Log::Dispatch::Base 2.70
-      Log::Dispatch::Code 2.70
-      Log::Dispatch::Email 2.70
-      Log::Dispatch::Email::MIMELite 2.70
-      Log::Dispatch::Email::MailSend 2.70
-      Log::Dispatch::Email::MailSender 2.70
-      Log::Dispatch::Email::MailSendmail 2.70
-      Log::Dispatch::File 2.70
-      Log::Dispatch::File::Locked 2.70
-      Log::Dispatch::Handle 2.70
-      Log::Dispatch::Null 2.70
-      Log::Dispatch::Output 2.70
-      Log::Dispatch::Screen 2.70
-      Log::Dispatch::Syslog 2.70
-      Log::Dispatch::Types 2.70
-      Log::Dispatch::Vars 2.70
+      Log::Dispatch 2.71
+      Log::Dispatch::ApacheLog 2.71
+      Log::Dispatch::Base 2.71
+      Log::Dispatch::Code 2.71
+      Log::Dispatch::Email 2.71
+      Log::Dispatch::Email::MIMELite 2.71
+      Log::Dispatch::Email::MailSend 2.71
+      Log::Dispatch::Email::MailSender 2.71
+      Log::Dispatch::Email::MailSendmail 2.71
+      Log::Dispatch::File 2.71
+      Log::Dispatch::File::Locked 2.71
+      Log::Dispatch::Handle 2.71
+      Log::Dispatch::Null 2.71
+      Log::Dispatch::Output 2.71
+      Log::Dispatch::Screen 2.71
+      Log::Dispatch::Syslog 2.71
+      Log::Dispatch::Types 2.71
+      Log::Dispatch::Vars 2.71
     requirements:
       Carp 0
       Devel::GlobalDestruction 0
@@ -557,28 +559,28 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.006
-  Module-Build-0.4231
-    pathname: L/LE/LEONT/Module-Build-0.4231.tar.gz
+  Module-Build-0.4234
+    pathname: L/LE/LEONT/Module-Build-0.4234.tar.gz
     provides:
-      Module::Build 0.4231
-      Module::Build::Base 0.4231
-      Module::Build::Compat 0.4231
-      Module::Build::Config 0.4231
-      Module::Build::Cookbook 0.4231
-      Module::Build::Dumper 0.4231
-      Module::Build::Notes 0.4231
-      Module::Build::PPMMaker 0.4231
-      Module::Build::Platform::Default 0.4231
-      Module::Build::Platform::MacOS 0.4231
-      Module::Build::Platform::Unix 0.4231
-      Module::Build::Platform::VMS 0.4231
-      Module::Build::Platform::VOS 0.4231
-      Module::Build::Platform::Windows 0.4231
-      Module::Build::Platform::aix 0.4231
-      Module::Build::Platform::cygwin 0.4231
-      Module::Build::Platform::darwin 0.4231
-      Module::Build::Platform::os2 0.4231
-      Module::Build::PodParser 0.4231
+      Module::Build 0.4234
+      Module::Build::Base 0.4234
+      Module::Build::Compat 0.4234
+      Module::Build::Config 0.4234
+      Module::Build::Cookbook 0.4234
+      Module::Build::Dumper 0.4234
+      Module::Build::Notes 0.4234
+      Module::Build::PPMMaker 0.4234
+      Module::Build::Platform::Default 0.4234
+      Module::Build::Platform::MacOS 0.4234
+      Module::Build::Platform::Unix 0.4234
+      Module::Build::Platform::VMS 0.4234
+      Module::Build::Platform::VOS 0.4234
+      Module::Build::Platform::Windows 0.4234
+      Module::Build::Platform::aix 0.4234
+      Module::Build::Platform::cygwin 0.4234
+      Module::Build::Platform::darwin 0.4234
+      Module::Build::Platform::os2 0.4234
+      Module::Build::PodParser 0.4234
     requirements:
       CPAN::Meta 2.142060
       Cwd 0
@@ -597,16 +599,15 @@ DISTRIBUTIONS
       Getopt::Long 0
       Module::Metadata 1.000002
       Perl::OSType 1
-      Pod::Man 2.17
       TAP::Harness 3.29
       Text::Abbrev 0
       Text::ParseWords 0
       perl 5.006001
       version 0.87
-  Module-Build-Tiny-0.039
-    pathname: L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz
+  Module-Build-Tiny-0.046
+    pathname: L/LE/LEONT/Module-Build-Tiny-0.046.tar.gz
     provides:
-      Module::Build::Tiny 0.039
+      Module::Build::Tiny 0.046
     requirements:
       CPAN::Meta 0
       DynaLoader 0
@@ -676,8 +677,8 @@ DISTRIBUTIONS
       perl 5.010
       strict 0
       warnings 0
-  Mojolicious-9.26
-    pathname: S/SR/SRI/Mojolicious-9.26.tar.gz
+  Mojolicious-9.33
+    pathname: S/SR/SRI/Mojolicious-9.33.tar.gz
     provides:
       Mojo undef
       Mojo::Asset undef
@@ -745,7 +746,7 @@ DISTRIBUTIONS
       Mojo::UserAgent::Transactor undef
       Mojo::Util undef
       Mojo::WebSocket undef
-      Mojolicious 9.26
+      Mojolicious 9.33
       Mojolicious::Command undef
       Mojolicious::Command::Author::cpanify undef
       Mojolicious::Command::Author::generate undef
@@ -794,20 +795,20 @@ DISTRIBUTIONS
       IO::Socket::IP 0.37
       Sub::Util 1.41
       perl 5.016
-  Moo-2.005004
-    pathname: H/HA/HAARG/Moo-2.005004.tar.gz
+  Moo-2.005005
+    pathname: H/HA/HAARG/Moo-2.005005.tar.gz
     provides:
       Method::Generate::Accessor undef
       Method::Generate::BuildAll undef
       Method::Generate::Constructor undef
       Method::Generate::DemolishAll undef
-      Moo 2.005004
+      Moo 2.005005
       Moo::HandleMoose undef
       Moo::HandleMoose::FakeConstructor undef
       Moo::HandleMoose::FakeMetaClass undef
       Moo::HandleMoose::_TypeMap undef
       Moo::Object undef
-      Moo::Role 2.005004
+      Moo::Role 2.005005
       Moo::_Utils undef
       Moo::sification undef
       oo undef
@@ -821,10 +822,10 @@ DISTRIBUTIONS
       Sub::Defer 2.006006
       Sub::Quote 2.006006
       perl 5.006
-  Mooish-AttributeBuilder-0.001
-    pathname: B/BR/BRTASTIC/Mooish-AttributeBuilder-0.001.tar.gz
+  Mooish-AttributeBuilder-1.003
+    pathname: B/BR/BRTASTIC/Mooish-AttributeBuilder-1.003.tar.gz
     provides:
-      Mooish::AttributeBuilder 0.001
+      Mooish::AttributeBuilder 1.003
     requirements:
       ExtUtils::MakeMaker 0
       perl 5.010
@@ -889,12 +890,12 @@ DISTRIBUTIONS
       Scalar::Util 1.18
       XSLoader 0.22
       parent 0
-  Params-ValidationCompiler-0.30
-    pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz
+  Params-ValidationCompiler-0.31
+    pathname: D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz
     provides:
-      Params::ValidationCompiler 0.30
-      Params::ValidationCompiler::Compiler 0.30
-      Params::ValidationCompiler::Exceptions 0.30
+      Params::ValidationCompiler 0.31
+      Params::ValidationCompiler::Compiler 0.31
+      Params::ValidationCompiler::Exceptions 0.31
     requirements:
       B 0
       Carp 0
@@ -907,11 +908,11 @@ DISTRIBUTIONS
       overload 0
       strict 0
       warnings 0
-  Path-Tiny-0.122
-    pathname: D/DA/DAGOLDEN/Path-Tiny-0.122.tar.gz
+  Path-Tiny-0.144
+    pathname: D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz
     provides:
-      Path::Tiny 0.122
-      Path::Tiny::Error 0.122
+      Path::Tiny 0.144
+      Path::Tiny::Error 0.144
     requirements:
       Carp 0
       Cwd 0
@@ -921,6 +922,7 @@ DISTRIBUTIONS
       Exporter 5.57
       ExtUtils::MakeMaker 6.17
       Fcntl 0
+      File::Compare 0
       File::Copy 0
       File::Glob 0
       File::Path 2.07
@@ -933,6 +935,53 @@ DISTRIBUTIONS
       strict 0
       warnings 0
       warnings::register 0
+  Pod-Simple-3.45
+    pathname: K/KH/KHW/Pod-Simple-3.45.tar.gz
+    provides:
+      Pod::Simple 3.45
+      Pod::Simple::BlackBox 3.45
+      Pod::Simple::Checker 3.45
+      Pod::Simple::Debug 3.45
+      Pod::Simple::DumpAsText 3.45
+      Pod::Simple::DumpAsXML 3.45
+      Pod::Simple::HTML 3.45
+      Pod::Simple::HTMLBatch 3.45
+      Pod::Simple::HTMLLegacy 5.01
+      Pod::Simple::JustPod undef
+      Pod::Simple::LinkSection 3.45
+      Pod::Simple::Methody 3.45
+      Pod::Simple::Progress 3.45
+      Pod::Simple::PullParser 3.45
+      Pod::Simple::PullParserEndToken 3.45
+      Pod::Simple::PullParserStartToken 3.45
+      Pod::Simple::PullParserTextToken 3.45
+      Pod::Simple::PullParserToken 3.45
+      Pod::Simple::RTF 3.45
+      Pod::Simple::Search 3.45
+      Pod::Simple::SimpleTree 3.45
+      Pod::Simple::Text 3.45
+      Pod::Simple::TextContent 3.45
+      Pod::Simple::TiedOutFH 3.45
+      Pod::Simple::Transcode 3.45
+      Pod::Simple::TranscodeDumb 3.45
+      Pod::Simple::TranscodeSmart 3.45
+      Pod::Simple::XHTML 3.45
+      Pod::Simple::XMLOutStream 3.45
+    requirements:
+      Carp 0
+      Config 0
+      Cwd 0
+      ExtUtils::MakeMaker 0
+      File::Basename 0
+      File::Find 0
+      File::Spec 0
+      Pod::Escapes 1.04
+      Symbol 0
+      Text::Wrap 98.112902
+      if 0
+      integer 0
+      overload 0
+      strict 0
   Ref-Util-0.204
     pathname: A/AR/ARC/Ref-Util-0.204.tar.gz
     provides:
@@ -1031,11 +1080,11 @@ DISTRIBUTIONS
       strict 0
       version 0.83
       warnings 0
-  Sub-Exporter-0.988
-    pathname: R/RJ/RJBS/Sub-Exporter-0.988.tar.gz
+  Sub-Exporter-0.989
+    pathname: R/RJ/RJBS/Sub-Exporter-0.989.tar.gz
     provides:
-      Sub::Exporter 0.988
-      Sub::Exporter::Util 0.988
+      Sub::Exporter 0.989
+      Sub::Exporter::Util 0.989
     requirements:
       Carp 0
       Data::OptList 0.100
@@ -1058,55 +1107,56 @@ DISTRIBUTIONS
     requirements:
       ExtUtils::MakeMaker 0
       Test::More 0
-  Sub-Install-0.928
-    pathname: R/RJ/RJBS/Sub-Install-0.928.tar.gz
+  Sub-Install-0.929
+    pathname: R/RJ/RJBS/Sub-Install-0.929.tar.gz
     provides:
-      Sub::Install 0.928
+      Sub::Install 0.929
     requirements:
       B 0
       Carp 0
-      ExtUtils::MakeMaker 6.30
+      ExtUtils::MakeMaker 6.78
       Scalar::Util 0
+      perl 5.008000
       strict 0
       warnings 0
-  Sub-Quote-2.006006
-    pathname: H/HA/HAARG/Sub-Quote-2.006006.tar.gz
+  Sub-Quote-2.006008
+    pathname: H/HA/HAARG/Sub-Quote-2.006008.tar.gz
     provides:
-      Sub::Defer 2.006006
-      Sub::Quote 2.006006
+      Sub::Defer 2.006008
+      Sub::Quote 2.006008
     requirements:
       ExtUtils::MakeMaker 0
       Scalar::Util 0
       perl 5.006
-  Syntax-Keyword-Match-0.09
-    pathname: P/PE/PEVANS/Syntax-Keyword-Match-0.09.tar.gz
+  Syntax-Keyword-Match-0.12
+    pathname: P/PE/PEVANS/Syntax-Keyword-Match-0.12.tar.gz
     provides:
-      Syntax::Keyword::Match 0.09
+      Syntax::Keyword::Match 0.12
     requirements:
       ExtUtils::CBuilder 0
       Module::Build 0.4004
       XS::Parse::Infix::Builder 0
-      XS::Parse::Keyword 0.14
-      XS::Parse::Keyword::Builder 0.14
+      XS::Parse::Keyword 0.23
+      XS::Parse::Keyword::Builder 0.23
       perl 5.016
-  Test-Fatal-0.016
-    pathname: R/RJ/RJBS/Test-Fatal-0.016.tar.gz
+  Test-Fatal-0.017
+    pathname: R/RJ/RJBS/Test-Fatal-0.017.tar.gz
     provides:
-      Test::Fatal 0.016
+      Test::Fatal 0.017
     requirements:
       Carp 0
       Exporter 5.57
-      ExtUtils::MakeMaker 0
+      ExtUtils::MakeMaker 6.78
       Test::Builder 0
       Try::Tiny 0.07
       strict 0
       warnings 0
-  Throwable-1.000
-    pathname: R/RJ/RJBS/Throwable-1.000.tar.gz
+  Throwable-1.001
+    pathname: R/RJ/RJBS/Throwable-1.001.tar.gz
     provides:
-      StackTrace::Auto 1.000
-      Throwable 1.000
-      Throwable::Error 1.000
+      StackTrace::Auto 1.001
+      Throwable 1.001
+      Throwable::Error 1.001
     requirements:
       Carp 0
       Devel::StackTrace 1.32
@@ -1138,58 +1188,68 @@ DISTRIBUTIONS
       Module::Runtime 0
       Type::Library 0.028
       Type::Utils 0.028
-  Type-Tiny-1.014000
-    pathname: T/TO/TOBYINK/Type-Tiny-1.014000.tar.gz
+  Type-Tiny-2.004000
+    pathname: T/TO/TOBYINK/Type-Tiny-2.004000.tar.gz
     provides:
-      Devel::TypeTiny::Perl56Compat 1.014000
-      Devel::TypeTiny::Perl58Compat 1.014000
-      Error::TypeTiny 1.014000
-      Error::TypeTiny::Assertion 1.014000
-      Error::TypeTiny::Compilation 1.014000
-      Error::TypeTiny::WrongNumberOfParameters 1.014000
-      Eval::TypeTiny 1.014000
-      Reply::Plugin::TypeTiny 1.014000
-      Test::TypeTiny 1.014000
-      Type::Coercion 1.014000
-      Type::Coercion::FromMoose 1.014000
-      Type::Coercion::Union 1.014000
-      Type::Library 1.014000
-      Type::Params 1.014000
-      Type::Parser 1.014000
-      Type::Parser::AstBuilder undef
-      Type::Parser::Token undef
-      Type::Parser::TokenStream undef
-      Type::Registry 1.014000
-      Type::Tiny 1.014000
-      Type::Tiny::Class 1.014000
-      Type::Tiny::ConstrainedObject 1.014000
-      Type::Tiny::Duck 1.014000
-      Type::Tiny::Enum 1.014000
-      Type::Tiny::Intersection 1.014000
-      Type::Tiny::Role 1.014000
-      Type::Tiny::Union 1.014000
-      Type::Utils 1.014000
-      Types::Common::Numeric 1.014000
-      Types::Common::String 1.014000
-      Types::Standard 1.014000
-      Types::Standard::ArrayRef 1.014000
-      Types::Standard::CycleTuple 1.014000
-      Types::Standard::Dict 1.014000
-      Types::Standard::HashRef 1.014000
-      Types::Standard::Map 1.014000
-      Types::Standard::ScalarRef 1.014000
-      Types::Standard::StrMatch 1.014000
-      Types::Standard::Tied 1.014000
-      Types::Standard::Tuple 1.014000
-      Types::TypeTiny 1.014000
+      Devel::TypeTiny::Perl58Compat 2.004000
+      Error::TypeTiny 2.004000
+      Error::TypeTiny::Assertion 2.004000
+      Error::TypeTiny::Compilation 2.004000
+      Error::TypeTiny::WrongNumberOfParameters 2.004000
+      Eval::TypeTiny 2.004000
+      Eval::TypeTiny::CodeAccumulator 2.004000
+      Reply::Plugin::TypeTiny 2.004000
+      Test::TypeTiny 2.004000
+      Type::Coercion 2.004000
+      Type::Coercion::FromMoose 2.004000
+      Type::Coercion::Union 2.004000
+      Type::Library 2.004000
+      Type::Params 2.004000
+      Type::Params::Alternatives 2.004000
+      Type::Params::Parameter 2.004000
+      Type::Params::Signature 2.004000
+      Type::Parser 2.004000
+      Type::Parser::AstBuilder 2.004000
+      Type::Parser::Token 2.004000
+      Type::Parser::TokenStream 2.004000
+      Type::Registry 2.004000
+      Type::Tie 2.004000
+      Type::Tie::ARRAY 2.004000
+      Type::Tie::BASE 2.004000
+      Type::Tie::HASH 2.004000
+      Type::Tie::SCALAR 2.004000
+      Type::Tiny 2.004000
+      Type::Tiny::Bitfield 2.004000
+      Type::Tiny::Class 2.004000
+      Type::Tiny::ConstrainedObject 2.004000
+      Type::Tiny::Duck 2.004000
+      Type::Tiny::Enum 2.004000
+      Type::Tiny::Intersection 2.004000
+      Type::Tiny::Role 2.004000
+      Type::Tiny::Union 2.004000
+      Type::Utils 2.004000
+      Types::Common 2.004000
+      Types::Common::Numeric 2.004000
+      Types::Common::String 2.004000
+      Types::Standard 2.004000
+      Types::Standard::ArrayRef 2.004000
+      Types::Standard::CycleTuple 2.004000
+      Types::Standard::Dict 2.004000
+      Types::Standard::HashRef 2.004000
+      Types::Standard::Map 2.004000
+      Types::Standard::ScalarRef 2.004000
+      Types::Standard::StrMatch 2.004000
+      Types::Standard::Tied 2.004000
+      Types::Standard::Tuple 2.004000
+      Types::TypeTiny 2.004000
     requirements:
-      Exporter::Tiny 1.000000
+      Exporter::Tiny 1.006000
       ExtUtils::MakeMaker 6.17
-      perl 5.006001
-  Variable-Magic-0.62
-    pathname: V/VP/VPIT/Variable-Magic-0.62.tar.gz
+      perl 5.008001
+  Variable-Magic-0.63
+    pathname: V/VP/VPIT/Variable-Magic-0.63.tar.gz
     provides:
-      Variable::Magic 0.62
+      Variable::Magic 0.63
     requirements:
       Carp 0
       Config 0
@@ -1205,13 +1265,13 @@ DISTRIBUTIONS
       base 0
       lib 0
       perl 5.008
-  XS-Parse-Keyword-0.24
-    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.24.tar.gz
+  XS-Parse-Keyword-0.34
+    pathname: P/PE/PEVANS/XS-Parse-Keyword-0.34.tar.gz
     provides:
-      XS::Parse::Infix 0.24
-      XS::Parse::Infix::Builder 0.24
-      XS::Parse::Keyword 0.24
-      XS::Parse::Keyword::Builder 0.24
+      XS::Parse::Infix 0.34
+      XS::Parse::Infix::Builder 0.34
+      XS::Parse::Keyword 0.34
+      XS::Parse::Keyword::Builder 0.34
     requirements:
       ExtUtils::CBuilder 0
       ExtUtils::CChecker 0.11
