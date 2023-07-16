@@ -1,0 +1,33 @@
+/* gruvbox theme from https://github.com/morhetz/gruvbox */
+
+body {
+	color: #ebdbb2;
+	background-color: #1d2021;
+}
+
+a {
+	color: #458588;
+}
+
+a:visited {
+	color: #b16286;
+}
+
+.marked a {
+	color: #689d6a;
+}
+
+pre, code {
+	color: #98971a;
+}
+
+h1, h1 a, h2, h2 a, h3, h3 a {
+	color: #d79921;
+}
+
+input, textarea {
+	background-color: #282828;
+	color: #ebdbb2;
+	border-color: #d79921;
+}
+

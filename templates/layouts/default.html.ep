@@ -3,6 +3,9 @@
 	<head>
 		<title><%= title %></title>
 		<link rel="stylesheet" href="/static/styles.css">
+		% if ($ENV{APP_THEME}) {
+			<link rel="stylesheet" href="/static/<%= $ENV{APP_THEME} %>.css">
+		% }
 	</head>
 	<body><%= content %></body>
 </html>
