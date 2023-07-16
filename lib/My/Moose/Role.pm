@@ -4,6 +4,7 @@ use v5.38;
 
 require Moo::Role;
 require Mooish::AttributeBuilder;
+require namespace::autoclean;
 use Import::Into;
 
 sub import ($self, @args)
@@ -12,6 +13,7 @@ sub import ($self, @args)
 
 	Moo::Role->import::into($pkg);
 	Mooish::AttributeBuilder->import::into($pkg);
+	namespace::autoclean->import::into($pkg);
 
 	return;
 }

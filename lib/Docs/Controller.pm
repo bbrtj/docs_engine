@@ -8,15 +8,11 @@ extends 'Mojolicious::Controller';
 
 has DI->inject('config');
 
-sub resolve_namespace ($self, $namespace = $self->param('document_namespace'))
-{
-	my $exists = $self->config->getconfig('document_directories')->{$namespace};
+with 'Role::NamespaceResolver';
 
-	return $exists
-		if defined $exists;
-
-	Exception::NotFound->raise;
-}
+around resolve_namespace => sub ($orig, $self, $namespace = $self->param('document_namespace')) {
+	return $self->$orig($namespace);
+};
 
 sub request_wrapper ($self, $code_sref)
 {

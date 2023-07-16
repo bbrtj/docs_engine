@@ -21,3 +21,15 @@ directory_accessor:
         config:
             $ref: config
 
+index:
+    class: Component::Index
+    args:
+        config:
+            $ref: config
+        db:
+            $ref: db
+        directory_accessor:
+            $ref: directory_accessor
+        file_accessor:
+            $ref: file_accessor
+

@@ -128,3 +128,29 @@ sub search_index ($self, $namespace, @words)
 	return $self->_run($query, $namespace, @words)->fetchall_arrayref({});
 }
 
+sub get_sysvar ($self, $name)
+{
+	state $query = <<~SQL;
+		SELECT value
+		FROM sysvar
+		WHERE name = ?
+	SQL
+
+	return $self->_run($query, $name)->fetchrow_hashref();
+}
+
+sub set_sysvar ($self, $name, $value)
+{
+	state $query = <<~SQL;
+		INSERT OR REPLACE
+		INTO sysvar (
+			name,
+			value
+		)
+		VALUES (?, ?)
+	SQL
+
+	$self->_run($query, $name, $value);
+	return;
+}
+
