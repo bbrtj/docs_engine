@@ -42,11 +42,14 @@ sub reindex ($self, $namespace)
 		my ($filename, $path) = $item->@*;
 		my $contents = $self->file_accessor->get_file($path);
 
-		my @words = split /\s/, $contents;
+		my @words = map { split /[^\w:-]/ } split /[\s\/=]/, $contents;
 		my %seen;
 
 		for my $word (@words) {
-			$seen{lc $word}++;
+			$word = lc $word;
+			$seen{$word}++;
+			$word =~ s/\W//g;
+			$seen{$word}++;
 		}
 
 		for my $word (keys %seen) {
