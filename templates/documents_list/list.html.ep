@@ -1,5 +1,5 @@
 % layout 'default';
-% title "Listing - $list_path";
+% title "Listing - $document_namespace";
 
 <div id="document-toolbar">
 	<ul>
@@ -25,7 +25,7 @@
 </div>
 
 <div id="document-contents">
-	<h1>Listing for <%= $list_path %></h1>
+	<h1>Listing for <%= $document_namespace %></h1>
 	<ul>
 	% for my $file ($list->@*) {
 		<li class="<%= $file->{marked} ? 'marked' : '' %>">
