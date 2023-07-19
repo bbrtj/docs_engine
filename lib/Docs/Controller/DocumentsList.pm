@@ -33,8 +33,16 @@ sub list ($self)
 				filename => $listed,
 				viewed_times => 0,
 				marked => !!0,
+				_listed => !!1,
 			} unless $metadata_mapped{$listed};
+
+			$metadata_mapped{$listed}{_listed} = !!1
+				if $metadata_mapped{$listed};
 		}
+
+		$metadata->@* = grep {
+			$_->{_listed}
+		} $metadata->@*;
 
 		match ($sort : eq) {
 			case ('alphabetical') {
