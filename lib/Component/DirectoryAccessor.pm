@@ -31,7 +31,10 @@ sub get_directories ($self)
 
 sub create_file ($self, $base, $path)
 {
-	$self->ensure_path_object($base)->child($path)->touch;
+	my $path_obj = $self->ensure_path_object($base)->child($path);
+	$path_obj->dirname->make_path;
+	$path_obj->touch;
+
 	$self->clear_cache($base);
 	return;
 }
