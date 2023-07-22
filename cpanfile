@@ -6,6 +6,7 @@ requires 'DBD::SQLite' => 0;
 
 requires 'Beam::Wire' => 0;
 requires 'Env::Dot' => 0;
+requires 'all' => 0;
 
 requires 'Form::Tiny' => '2.06';
 requires 'Form::Tiny::Plugin::Diva' => 0;

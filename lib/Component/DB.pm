@@ -66,6 +66,19 @@ sub switch_mark ($self, $namespace, $filename)
 	return;
 }
 
+sub rename_file ($self, $from_namespace, $from_filename, $to_namespace, $to_filename)
+{
+	state $query = <<~SQL;
+		UPDATE files
+		SET namespace = ?, filename = ?
+		WHERE namespace = ?
+			AND filename = ?
+	SQL
+
+	$self->_run($query, $to_namespace, $to_filename, $from_namespace, $from_filename);
+	return;
+}
+
 sub add_view ($self, $namespace, $filename)
 {
 	state $query = <<~SQL;

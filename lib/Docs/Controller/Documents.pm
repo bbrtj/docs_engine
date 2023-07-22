@@ -2,8 +2,7 @@ package Docs::Controller::Documents;
 
 use My::Moose;
 use Mojo::File qw(path);
-use Docs::Form::Document;
-use Docs::Form::NewDocument;
+use all 'Docs::Form';
 use header;
 
 extends 'Docs::Controller';
@@ -61,8 +60,9 @@ sub new_page ($self)
 			}
 		}
 		$self->stash(
+			document_path => undef,
 			form => $form
-		)->render;
+		)->render(template => 'documents/form_page');
 	});
 }
 
@@ -70,7 +70,7 @@ sub edit_page ($self)
 {
 	return $self->request_wrapper(sub {
 		$self->_standard_request(sub ($namespace, $path, $real_path) {
-			my $form = Docs::Form::Document->new;
+			my $form = Docs::Form::EditDocument->new;
 
 			if (($self->stash->{stage} // '') eq 'send') {
 				$form->set_input($self->req->params->to_hash);
@@ -88,7 +88,46 @@ sub edit_page ($self)
 			$self->stash(
 				document_path => $path,
 				form => $form
-			)->render;
+			)->render(template => 'documents/form_page');
+		})
+	});
+}
+
+sub move_page ($self)
+{
+	return $self->request_wrapper(sub {
+		$self->_standard_request(sub ($namespace, $path, $real_path) {
+			my $form = Docs::Form::MoveDocument->new;
+
+			if (($self->stash->{stage} // '') eq 'send') {
+				$form->set_input($self->req->params->to_hash);
+
+				if ($form->valid) {
+					# TODO: check if already exist
+					my $content = $self->file_accessor->get_file($real_path);
+					my $new_namespace = $form->value('namespace');
+					my $new_namespace_resolved = $self->resolve_namespace($new_namespace);
+					my $new_name = $form->value('name');
+					$self->directory_accessor->create_file($new_namespace_resolved, $new_name);
+					$self->file_accessor->save_file(path($new_namespace_resolved)->child($new_name), $content);
+
+					$self->directory_accessor->delete_file($self->resolve_namespace, $path);
+					$self->db->rename_file($namespace, $path, $new_namespace, $new_name);
+
+					return $self->redirect_to('list');
+				}
+			}
+			else {
+				$form->set_input({
+					namespace => $namespace,
+					name => $path,
+				});
+			}
+
+			$self->stash(
+				document_path => $path,
+				form => $form
+			)->render(template => 'documents/form_page');
 		})
 	});
 }
@@ -97,14 +136,20 @@ sub delete_page ($self)
 {
 	return $self->request_wrapper(sub {
 		$self->_standard_request(sub ($namespace, $path, $real_path) {
+			my $form = Docs::Form::DeleteDocument->new;
+
 			if (($self->stash->{stage} // '') eq 'send') {
 				$self->directory_accessor->delete_file($self->resolve_namespace, $path);
 				return $self->redirect_to('list');
 			}
+			else {
+				$form->set_input({name => $path});
+			}
 
 			$self->stash(
 				document_path => $path,
-			)->render;
+				form => $form
+			)->render(template => 'documents/form_page');
 		})
 	});
 }

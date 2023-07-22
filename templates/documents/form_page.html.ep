@@ -1,11 +1,13 @@
 % layout 'default';
-% title "Edit knowledge - $document_path";
+% title $form->title . (defined $document_path ? " - $document_path" : '');
 
 <div id="document-toolbar">
 	<ul>
+		% if (defined $document_path) {
 		<li>
 			%= link_to View => url_for("page", document_namespace => $document_namespace, page_path => $document_path)
 		</li>
+		% }
 		<li>
 			%= link_to List => url_for("list", document_namespace => $document_namespace)
 		</li>

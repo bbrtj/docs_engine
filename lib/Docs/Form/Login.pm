@@ -1,7 +1,11 @@
 package Docs::Form::Login;
 
-use Form::Tiny -filtered, plugins => ['Diva'];
+use Form::Tiny -filtered;
 use header;
+
+extends 'Docs::Form';
+
+use constant title => 'Login';
 
 has DI->inject('config');
 

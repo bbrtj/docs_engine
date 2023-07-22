@@ -1,7 +1,11 @@
 package Docs::Form::Search;
 
-use Form::Tiny plugins => ['Diva'];
+use Form::Tiny;
 use header;
+
+extends 'Docs::Form';
+
+use constant title => 'Search';
 
 form_field 'phrase' => (
 	type => Types::SimpleStr,

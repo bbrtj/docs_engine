@@ -1,7 +1,11 @@
 package Docs::Form::NewDocument;
 
-use Form::Tiny plugins => ['Diva'];
+use Form::Tiny;
 use header;
+
+extends 'Docs::Form';
+
+use constant title => 'Create document';
 
 form_field 'name' => (
 	type => Types::SimpleStr,

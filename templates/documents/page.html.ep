@@ -10,6 +10,9 @@
 			%= link_to Delete => url_for("delete-page", document_namespace => $document_namespace, page_path => $document_path)
 		</li>
 		<li>
+			%= link_to Move => url_for("move-page", document_namespace => $document_namespace, page_path => $document_path)
+		</li>
+		<li>
 			%= link_to Mark => url_for("mark-page", document_namespace => $document_namespace, page_path => $document_path)
 		</li>
 		<li>

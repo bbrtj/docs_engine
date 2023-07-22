@@ -1,7 +1,11 @@
-package Docs::Form::Document;
+package Docs::Form::EditDocument;
 
-use Form::Tiny plugins => ['Diva'];
+use Form::Tiny;
 use header;
+
+extends 'Docs::Form';
+
+use constant title => 'Edit document';
 
 form_field 'content' => (
 	type => Types::Str,

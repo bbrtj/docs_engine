@@ -2,7 +2,6 @@ package Docs::Controller::DocumentsList;
 
 use My::Moose;
 use Mojo::File qw(path);
-use Docs::Form::Document;
 use Syntax::Keyword::Match;
 use header;
 

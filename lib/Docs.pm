@@ -74,6 +74,10 @@ sub load_routes ($self, $config)
 	my $reindex = $main->under('/reindex')->to('middleware#auth');
 	$reindex->get('/:document_namespace')->to('search#reindex')->name('reindex');
 
+	my $move = $main->under('/move')->to('middleware#auth');
+	$move->get('/:document_namespace/*page_path')->to('documents#move_page')->name('move-page');
+	$move->post('/:document_namespace/*page_path')->to('documents#move_page', stage => 'send');
+
 	my $delete = $main->under('/delete')->to('middleware#auth');
 	$delete->get('/:document_namespace/*page_path')->to('documents#delete_page')->name('delete-page');
 	$delete->post('/:document_namespace/*page_path')->to('documents#delete_page', stage => 'send');
