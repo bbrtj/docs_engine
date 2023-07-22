@@ -11,7 +11,7 @@
 
 <div id="document-contents">
 	<h1>Root directory listing</h1>
-	<ul>
+	<ul class="document-listing">
 	% for my $directory ($list->@*) {
 		<li>
 		%= link_to $directory => url_for("list", document_namespace => $directory)

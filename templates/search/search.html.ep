@@ -35,7 +35,7 @@
 
 	% if (defined $found) {
 		<h1>Search results</h1>
-		<ul>
+		<ul class="document-listing">
 		% for my $match ($found->@*) {
 			<li>
 			%= link_to "$match->{filename} ($match->{seen} matches)" => url_for("page", document_namespace => $document_namespace, page_path => $match->{filename})

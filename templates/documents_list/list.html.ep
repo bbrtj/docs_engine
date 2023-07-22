@@ -26,7 +26,7 @@
 
 <div id="document-contents">
 	<h1>Listing for <%= $document_namespace %></h1>
-	<ul>
+	<ul class="document-listing">
 	% for my $file ($list->@*) {
 		<li class="<%= $file->{marked} ? 'marked' : '' %>">
 		%= link_to $file->{filename} => url_for("page", document_namespace => $document_namespace, page_path => $file->{filename})

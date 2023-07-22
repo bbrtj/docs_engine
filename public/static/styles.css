@@ -36,6 +36,10 @@ html body {
 	height: 500px;
 }
 
+ul.document-listing li {
+	padding: 5px;
+}
+
 .marked {
 	font-weight: bold;
 }
